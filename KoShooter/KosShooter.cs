@@ -4,12 +4,12 @@ using Microsoft.Xna.Framework.Input;
 
 namespace KosShooter;
 
-public class Game1 : Game
+public class KosShooter : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
 
-    public Game1()
+    public KosShooter()
     {
         _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";

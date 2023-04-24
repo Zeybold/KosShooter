@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KosShooter", "KosShooter\KosShooter.csproj", "{2B4AFAC3-CB3B-4355-AC76-734A37577BC5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoShooter", "KoShooter\KoShooter.csproj", "{2B4AFAC3-CB3B-4355-AC76-734A37577BC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
