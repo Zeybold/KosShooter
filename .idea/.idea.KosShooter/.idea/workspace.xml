@@ -7,15 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd4cca7e-7637-4b81-8a65-4925a4b7fef8" name="Changes" comment="Create Project">
-      <change beforePath="$PROJECT_DIR$/KosShooter.sln" beforeDir="false" afterPath="$PROJECT_DIR$/KoShooter.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KosShooter/.config/dotnet-tools.json" beforeDir="false" afterPath="$PROJECT_DIR$/KoShooter/.config/dotnet-tools.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KosShooter/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/KoShooter/Content/Content.mgcb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KosShooter/Game1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KoShooter/KosShooter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KosShooter/Icon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/KoShooter/Icon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KosShooter/KosShooter.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/KoShooter/KoShooter.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KosShooter/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/KoShooter/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KosShooter/app.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/KoShooter/app.manifest" afterDir="false" />
+    <list default="true" id="dd4cca7e-7637-4b81-8a65-4925a4b7fef8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.KosShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KosShooter/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +17,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/KoShooter/KosShooter.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectId" id="2OsTzlm7GYJRZEa5pxsTRbk0HrX" />
@@ -36,7 +32,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "games",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -81,7 +77,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682348556390</updated>
-      <workItem from="1682348558138" duration="981000" />
+      <workItem from="1682348558138" duration="2350000" />
     </task>
     <task id="LOCAL-00001" summary="Create Project">
       <created>1682348987602</created>
@@ -90,7 +86,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682348987602</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Rebase Commit">
+      <created>1682349629051</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682349629051</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +103,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Create Project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create Project" />
+    <MESSAGE value="Rebase Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rebase Commit" />
   </component>
 </project>
