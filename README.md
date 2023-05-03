@@ -1,5 +1,6 @@
 ### KosShooter
 C# game for university
+Зейбольд Алексей Витальевич АТ-06
 ***
 ### РАБОЧЕЕ НАЗВАНИЕ ИГРЫ: 
 KosShooter
