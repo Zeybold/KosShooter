@@ -13,7 +13,7 @@ public class Mouses
     public Mouses()
     {
         _positionMouse = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
-        _modelMouse = ContentGame.contentGame.Load<Texture2D>("TextureGames/PlayerModel/TexturePlayer");
+        _modelMouse = Configurations.ContentGame.Load<Texture2D>("TextureGames/PlayerModel/TexturePlayer");
     }
 
     public void Update()
@@ -23,7 +23,7 @@ public class Mouses
 
     public void Draw()
     {
-        Sprite.SpriteBatch.
+        Configurations.SpriteBatch.
             Draw(_modelMouse,
                 new Rectangle((int)_positionMouse.X,(int)_positionMouse.Y,
                     10,10), 

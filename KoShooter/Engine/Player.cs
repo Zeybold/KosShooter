@@ -15,7 +15,7 @@ public class Player
     public float rotation = 0;
     public Player()
     {
-        modelCharacter = ContentGame.contentGame.Load<Texture2D>("TextureGames/PlayerModel/TexturePlayer");
+        modelCharacter = Configurations.ContentGame.Load<Texture2D>("TextureGames/PlayerModel/TexturePlayer");
         positionCharacter = new Vector2(100, 100);
     }
 
@@ -46,7 +46,7 @@ public class Player
 
     public void Draw()
     {
-        Sprite.SpriteBatch.Draw(modelCharacter,
+        Configurations.SpriteBatch.Draw(modelCharacter,
             new Rectangle((int)positionCharacter.X, (int)positionCharacter.Y,
                 64, 64), null, Color.White, rotation, 
             new Vector2(modelCharacter.Width/2,modelCharacter.Height/2),SpriteEffects.None,0);

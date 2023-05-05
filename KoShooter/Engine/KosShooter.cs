@@ -29,8 +29,8 @@ public class KosShooter : Game
     {
         // TODO: use this.Content to load your game content here
         
-        Sprite.SpriteBatch = new SpriteBatch(GraphicsDevice);
-        ContentGame.contentGame = this.Content;
+        Configurations.SpriteBatch = new SpriteBatch(GraphicsDevice);
+        Configurations.ContentGame = this.Content;
         
         worldGame = new World();
     }
@@ -51,9 +51,9 @@ public class KosShooter : Game
         GraphicsDevice.Clear(Color.CornflowerBlue);
         
         // TODO: Add your drawing code here
-        Sprite.SpriteBatch.Begin();
+        Configurations.SpriteBatch.Begin();
         worldGame.Draw();
-        Sprite.SpriteBatch.End();
+        Configurations.SpriteBatch.End();
         base.Draw(gameTime);
     }
 }

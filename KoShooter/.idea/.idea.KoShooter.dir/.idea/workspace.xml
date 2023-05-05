@@ -8,11 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f41e3c5-26b5-4cc4-9c32-2f09b902d519" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/.idea.KosShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/.idea.KosShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../KoShooter.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KosShooter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/ContentGame.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/KosShooter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/KosShooter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Mouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Mouse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Sprite.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +29,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b3f3e3d470644786bce7a05008b0d88fed800/cd/106557b0/Vector2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b3f3e3d470644786bce7a05008b0d88fed800/ff/c298771b/Keys.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectId" id="2P3uVo37904cHELxHVv40VExJoW" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -86,14 +91,38 @@
       <workItem from="1682699061637" duration="472000" />
       <workItem from="1682755759864" duration="1217000" />
       <workItem from="1683024047405" duration="7856000" />
-      <workItem from="1683114491244" duration="11781000" />
+      <workItem from="1683114491244" duration="12517000" />
+      <workItem from="1683199215995" duration="3568000" />
+      <workItem from="1683302862852" duration="644000" />
     </task>
+    <task id="LOCAL-00001" summary="ItJustWork Code.Add Wasd controller and Mouse Rotation">
+      <created>1683135075077</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683135075077</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="ItJustWork Code.Add Wasd controller and Mouse Rotation" />
+    <option name="LAST_COMMIT_MESSAGE" value="ItJustWork Code.Add Wasd controller and Mouse Rotation" />
   </component>
 </project>
