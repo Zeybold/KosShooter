@@ -19,10 +19,10 @@ public class Player
         positionCharacter = new Vector2(100, 100);
     }
 
-    public void Update(Vector2 mousePosition)
+    public void Update()
     {
         MovePlayer();
-        RotationPlayer(mousePosition);
+        RotationPlayer();
     }
 
     private void MovePlayer()
@@ -37,9 +37,10 @@ public class Player
             positionCharacter.X+=velocity;
     }
 
-    private void RotationPlayer(Vector2 mousePosition)
+    private void RotationPlayer()
     {
-        var direction = Vector2.Normalize(mousePosition- positionCharacter); // calculate the direction vector from player to target
+        var mousePosition = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
+        var direction = Vector2.Normalize(mousePosition - positionCharacter); // calculate the direction vector from player to target
         var angle = (float)Math.Atan2(direction.Y, direction.X) + (float)Math.PI/2;
         rotation =  angle;
     }

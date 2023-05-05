@@ -10,22 +10,19 @@ namespace KosShooter;
 public class World
 {
     public Player character;
-    public Mouses Mouses;
     public World()
     {
         character = new Player();
-        Mouses = new Mouses();
+        Mouse.SetCursor(MouseCursor.FromTexture2D(Configurations.ContentGame.Load<Texture2D>("TextureGames/Cursor/aim"),10,10));
     }
 
     public void Update()
     {
-        Mouses.Update();
-        character.Update(Mouses.GetPositionMouse());
+        character.Update();
     }
 
     public void Draw()
     {
         character.Draw();
-        Mouses.Draw();
     }
 }
