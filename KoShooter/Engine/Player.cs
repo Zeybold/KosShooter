@@ -39,8 +39,9 @@ public class Player
 
     private void RotationPlayer()
     {
+        // calculate the direction vector from player to target
         var mousePosition = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
-        var direction = Vector2.Normalize(mousePosition - positionCharacter); // calculate the direction vector from player to target
+        var direction = Vector2.Normalize(mousePosition - positionCharacter);
         var angle = (float)Math.Atan2(direction.Y, direction.X) + (float)Math.PI/2;
         rotation =  angle;
     }

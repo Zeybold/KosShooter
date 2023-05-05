@@ -8,12 +8,10 @@ namespace KosShooter;
 
 public class KosShooter : Game
 {
-    private GraphicsDeviceManager _graphics;
-
     private World worldGame;
     public KosShooter()
     {
-        _graphics = new GraphicsDeviceManager(this);
+        Configurations.GraphicsDeviceManager = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
     }
@@ -21,7 +19,7 @@ public class KosShooter : Game
     protected override void Initialize()
     {
         // TODO: Add your initialization logic here
-
+        Configurations.ScreenResultInit();
         base.Initialize();
     }
 
