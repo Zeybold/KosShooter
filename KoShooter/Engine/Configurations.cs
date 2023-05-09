@@ -12,6 +12,7 @@ public class Configurations
     public static int ScreenHeight;
     public static int ScreenWidth;
     public static GraphicsDeviceManager GraphicsDeviceManager;
+    public static Color BaseColor = Color.White;
 
     public static void ScreenResultInit()
     {

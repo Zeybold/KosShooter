@@ -1,25 +1,29 @@
+using Microsoft.Xna.Framework;
 using System;
 using System.Net.Mime;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+
 namespace KosShooter;
 
-public abstract class Entity
+public class Weapon
 {
     protected Texture2D Texture;
     protected Vector2 Position;
-    protected float Velocity;
-    protected float Rotation;
-    public bool isExists;
     private Vector2 Size => new(Texture.Width, Texture.Height);
-
-    public abstract void Update(GameTime gameTime);
-    public virtual void Draw()
+    public Weapon()
     {
-        Configurations.SpriteBatch.Draw(Texture, Position, null, Configurations.BaseColor, Rotation, Size/2,1, 0, 0);
+        Texture = Configurations.ContentGame.Load<Texture2D>("TextureGames/PlayerModel/TexturePlayer");
+    }
+    public virtual void Update(GameTime gameTime)
+    {
+        
     }
 
+    public virtual void Draw()
+    {
+        Configurations.SpriteBatch.Draw(Texture, Position, null, Configurations.BaseColor, 0, Size/2,1, 0, 0);
+    }
 }
-    

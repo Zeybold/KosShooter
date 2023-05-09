@@ -7,50 +7,37 @@ using Microsoft.Xna.Framework.Input;
 
 namespace KosShooter;
 
-public class Player
+public class Player : Entity
 {
-    public Texture2D modelCharacter;
-    public Vector2 positionCharacter;
-    public float velocity = 2;
-    public float rotation = 0;
     public Player()
     {
-        modelCharacter = Configurations.ContentGame.Load<Texture2D>("TextureGames/PlayerModel/TexturePlayer");
-        positionCharacter = new Vector2(100, 100);
+        Texture = Configurations.ContentGame.Load<Texture2D>("TextureGames/PlayerModel/TexturePlayer");
+        Position = new Vector2(100, 100);
+        Velocity = 3;
     }
-
-    public void Update()
-    {
-        MovePlayer();
-        RotationPlayer();
-    }
-
     private void MovePlayer()
     {
         if (Keyboard.GetState().IsKeyDown(Keys.W))
-            positionCharacter.Y-=velocity;
+            Position.Y-=Velocity;
         if (Keyboard.GetState().IsKeyDown(Keys.A))
-            positionCharacter.X-=velocity;
+            Position.X-=Velocity;
         if (Keyboard.GetState().IsKeyDown(Keys.S))
-            positionCharacter.Y+=velocity;
+            Position.Y+=Velocity;
         if (Keyboard.GetState().IsKeyDown(Keys.D))
-            positionCharacter.X+=velocity;
+            Position.X+=Velocity;
     }
 
     private void RotationPlayer()
     {
         // calculate the direction vector from player to target
         var mousePosition = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
-        var direction = Vector2.Normalize(mousePosition - positionCharacter);
+        var direction = Vector2.Normalize(mousePosition - Position);
         var angle = (float)Math.Atan2(direction.Y, direction.X) + (float)Math.PI/2;
-        rotation =  angle;
+        Rotation = angle;
     }
-
-    public void Draw()
+    public override void Update(GameTime gameTime)
     {
-        Configurations.SpriteBatch.Draw(modelCharacter,
-            new Rectangle((int)positionCharacter.X, (int)positionCharacter.Y,
-                64, 64), null, Color.White, rotation, 
-            new Vector2(modelCharacter.Width/2,modelCharacter.Height/2),SpriteEffects.None,0);
+        MovePlayer();
+        RotationPlayer();
     }
 }

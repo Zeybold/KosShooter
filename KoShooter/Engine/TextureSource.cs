@@ -1,6 +1,6 @@
 namespace KosShooter;
 
-public class GameData
+public class TextureSource
 {
     
 }

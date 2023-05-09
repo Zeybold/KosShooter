@@ -28,7 +28,7 @@ public class KosShooter : Game
         // TODO: use this.Content to load your game content here
         
         Configurations.SpriteBatch = new SpriteBatch(GraphicsDevice);
-        Configurations.ContentGame = this.Content;
+        Configurations.ContentGame = Content;
         
         worldGame = new World();
     }
@@ -40,7 +40,7 @@ public class KosShooter : Game
             Exit();
 
         // TODO: Add your update logic here
-        worldGame.Update();
+        worldGame.Update(gameTime);
         base.Update(gameTime);
     }
 
