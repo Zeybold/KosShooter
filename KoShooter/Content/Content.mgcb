@@ -25,6 +25,18 @@
 /processorParam:TextureFormat=Color
 /build:TextureGames/Cursor/aim.png
 
+#begin TextureGames/Enemies/enemy1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:TextureGames/Enemies/enemy1.png
+
 #begin TextureGames/PlayerModel/TexturePlayer.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -36,4 +48,28 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:TextureGames/PlayerModel/TexturePlayer.png
+
+#begin TextureGames/Weapons/silver-bullet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:TextureGames/Weapons/silver-bullet.png;TextureGames/Weapons/bullet.png
+
+#begin TextureGames/Weapons/weapon1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:TextureGames/Weapons/weapon1.png
 

@@ -12,7 +12,7 @@ public class Enemy : Entity
 {
     public Enemy()
     {
-        Texture = Configurations.ContentGame.Load<Texture2D>("TextureGames/PlayerModel/TexturePlayer");
+        Texture = TextureSource.Enemy;
         Position = new Vector2(150, 150);
         Velocity = 3;
     }
@@ -22,6 +22,9 @@ public class Enemy : Entity
     }
     private void FindPlayer()
     {
-        
+        var mousePosition = Player.Creature.GetPositionEntity();
+        var direction = Vector2.Normalize(mousePosition - Position);
+        var angle = (float)Math.Atan2(direction.Y, direction.X) + (float)Math.PI/2;
+        Rotation = angle;
     }
 }

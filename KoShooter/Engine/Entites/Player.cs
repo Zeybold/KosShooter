@@ -1,5 +1,6 @@
 using System;
 using System.Net.Mime;
+using System.Security.Policy;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,9 +10,10 @@ namespace KosShooter;
 
 public class Player : Entity
 {
+    public static Player Creature = new Player();
     public Player()
     {
-        Texture = Configurations.ContentGame.Load<Texture2D>("TextureGames/PlayerModel/TexturePlayer");
+        Texture = TextureSource.Player;
         Position = new Vector2(100, 100);
         Velocity = 3;
     }
@@ -29,7 +31,6 @@ public class Player : Entity
 
     private void RotationPlayer()
     {
-        // calculate the direction vector from player to target
         var mousePosition = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
         var direction = Vector2.Normalize(mousePosition - Position);
         var angle = (float)Math.Atan2(direction.Y, direction.X) + (float)Math.PI/2;

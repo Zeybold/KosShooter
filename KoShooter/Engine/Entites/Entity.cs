@@ -21,5 +21,9 @@ public abstract class Entity
         Configurations.SpriteBatch.Draw(Texture, Position, null, Configurations.BaseColor, Rotation, Size/2,1, 0, 0);
     }
 
+    public Vector2 GetPositionEntity()
+    {
+        return Position;
+    }
 }
     

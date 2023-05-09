@@ -8,16 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f41e3c5-26b5-4cc4-9c32-2f09b902d519" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Engine/EntityProcessing.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/TextureSource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/Weapon.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../et --hard 77e21" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Configurations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Configurations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/KosShooter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/KosShooter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/World.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/World.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Configurations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Scripts work with Source/Configurations.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/EntityProcessing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/EntityProcessing.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/KosShooter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/GameCore/KosShooter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Run.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/GameCore/Run.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/TextureSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Scripts work with Source/TextureSource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Weapon/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/World.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/WorldSystem.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +105,7 @@
       <workItem from="1683459027826" duration="30000" />
       <workItem from="1683555048524" duration="2954000" />
       <workItem from="1683615381926" duration="9291000" />
+      <workItem from="1683642119927" duration="2701000" />
     </task>
     <task id="LOCAL-00001" summary="ItJustWork Code.Add Wasd controller and Mouse Rotation">
       <created>1683135075077</created>
