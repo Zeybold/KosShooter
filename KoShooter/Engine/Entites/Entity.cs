@@ -12,7 +12,7 @@ public abstract class Entity
     protected Vector2 Position;
     protected float Velocity;
     protected float Rotation;
-    public bool isExists;
+    public bool isExists = true;
     private Vector2 Size => new(Texture.Width, Texture.Height);
 
     public abstract void Update(GameTime gameTime);
@@ -24,6 +24,10 @@ public abstract class Entity
     public Vector2 GetPositionEntity()
     {
         return Position;
+    }
+    public float GetRotationEntity()
+    {
+        return Rotation;
     }
 }
     

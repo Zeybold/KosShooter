@@ -9,24 +9,20 @@ namespace KosShooter;
 
 public class WorldSystem
 {
-    public Weapon weap;
     public WorldSystem()
     {
         EntityProcessing.Add(Player.Creature);
         EntityProcessing.Add(new Enemy());
-        weap = new Weapon();
         Mouse.SetCursor(MouseCursor.FromTexture2D(Configurations.ContentGame.Load<Texture2D>("TextureGames/Cursor/aim"),10,10));
     }
 
     public void Update(GameTime gameTime)
     {
         EntityProcessing.Update(gameTime);
-        weap.Update(gameTime);
     }
 
     public void Draw()
     {
-        weap.Draw();
         EntityProcessing.Draw();
     }
 }

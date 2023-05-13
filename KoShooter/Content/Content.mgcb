@@ -37,6 +37,18 @@
 /processorParam:TextureFormat=Color
 /build:TextureGames/Enemies/enemy1.png
 
+#begin TextureGames/PlayerModel/PlayerWithGun.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:TextureGames/PlayerModel/PlayerWithGun.png
+
 #begin TextureGames/PlayerModel/TexturePlayer.png
 /importer:TextureImporter
 /processor:TextureProcessor

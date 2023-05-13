@@ -10,8 +10,9 @@ namespace KosShooter;
 
 public class Player : Entity
 {
-    public static Player Creature = new Player();
-    public Player()
+    public static readonly Player Creature = new();
+    public static byte Cooldown = 4;
+    private Player()
     {
         Texture = TextureSource.Player;
         Position = new Vector2(100, 100);
@@ -36,9 +37,21 @@ public class Player : Entity
         var angle = (float)Math.Atan2(direction.Y, direction.X) + (float)Math.PI/2;
         Rotation = angle;
     }
+
+    private void Shoot()
+    {
+        if (Mouse.GetState().LeftButton == ButtonState.Pressed && Cooldown<=0)
+        {
+            Cooldown = 4;
+            EntityProcessing.Add(new Bullet());
+        }
+    }
+
     public override void Update(GameTime gameTime)
     {
         MovePlayer();
         RotationPlayer();
+        Shoot();
+        Cooldown--;
     }
 }
