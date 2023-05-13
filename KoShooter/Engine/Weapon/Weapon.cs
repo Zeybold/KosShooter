@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using System;
+using System.ComponentModel.Design.Serialization;
 using System.Net.Mime;
 using System.Numerics;
 using Microsoft.Xna.Framework;
@@ -10,17 +11,43 @@ using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace KosShooter;
 
-abstract class Weapon
+public abstract class Weapon
 {
-    protected Texture2D Texture;
-    private Vector2 Size => new(Texture.Width, Texture.Height);
-    public Vector2 Position;
-    public int Damage;
-    
-    public abstract void Update(GameTime gameTime);
-
-    public virtual void Draw()
+    public Texture2D Texture;
+    public byte Damage;
+    public byte RateOfFire;
+    public float MuzzleVelocity;
+    public byte Cooldown;
+    public float Tochnost;
+    public byte Magazine;
+    public byte CurrentMagazine;
+    public byte ReloadVelocity;
+    public virtual void ShootCooldown(GameTime gameTime)
     {
-        Configurations.SpriteBatch.Draw(Texture, Position, null, Configurations.BaseColor, 0, Size/2,1, 0, 0);
+        if (Mouse.GetState().LeftButton == ButtonState.Pressed && Cooldown==0)
+        {
+            if (CurrentMagazine==0)
+                Reload();
+            else
+            {
+                Cooldown = RateOfFire;
+                CreateBullet();
+                CurrentMagazine--;      
+            }
+        }
+        if (Cooldown > 0)
+            Cooldown--;
+    }
+
+    public virtual void Reload()
+    {
+        //ToDo SoundReload
+        Cooldown = ReloadVelocity;
+        CurrentMagazine = Magazine;
+    }
+    public abstract void CreateBullet();
+    public virtual Texture2D GetTexture()
+    {
+        return Texture;
     }
 }

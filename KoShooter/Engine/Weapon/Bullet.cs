@@ -5,18 +5,22 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using SharpDX;
+using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace KosShooter;
 
 public class Bullet : Entity
 {
-    public Vector2 Traectoia = Vector2.Zero;
-    public Bullet()
+    
+    public Bullet(Vector2 position, float velocity, float tochnost)
     {
-        Position = Player.Creature.GetPositionEntity();
-        Rotation = Player.Creature.GetRotationEntity();
-        Velocity = 10;
+        Position = position;
+        Velocity = velocity;
         Texture = TextureSource.Bullet;
+        var GreatRandom = new Random();
+        Rotation = RandomUtil.NextFloat(GreatRandom,-tochnost,tochnost)+Player.Creature.GetRotationEntity();
+
     }
     
     public override void Update(GameTime gameTime)

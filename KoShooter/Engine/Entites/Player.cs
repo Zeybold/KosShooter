@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Net.Mime;
 using System.Security.Policy;
+using System.Windows.Forms.VisualStyles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,12 +13,13 @@ namespace KosShooter;
 public class Player : Entity
 {
     public static readonly Player Creature = new();
-    public static byte Cooldown = 4;
+    public static Weapon CurrentWeapon;
     private Player()
     {
         Texture = TextureSource.Player;
         Position = new Vector2(100, 100);
         Velocity = 3;
+        CurrentWeapon = new Pistol();
     }
     private void MovePlayer()
     {
@@ -38,20 +41,18 @@ public class Player : Entity
         Rotation = angle;
     }
 
-    private void Shoot()
+    private void ChangeWeapon()
     {
-        if (Mouse.GetState().LeftButton == ButtonState.Pressed && Cooldown<=0)
-        {
-            Cooldown = 4;
-            EntityProcessing.Add(new Bullet());
-        }
+        if (CurrentWeapon.Texture!=Texture)
+            Texture = CurrentWeapon.Texture;
     }
+    
 
     public override void Update(GameTime gameTime)
     {
         MovePlayer();
         RotationPlayer();
-        Shoot();
-        Cooldown--;
+        CurrentWeapon.ShootCooldown(gameTime);
+        ChangeWeapon();
     }
 }

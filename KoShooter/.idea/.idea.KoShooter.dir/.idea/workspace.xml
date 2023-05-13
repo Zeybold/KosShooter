@@ -8,15 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f41e3c5-26b5-4cc4-9c32-2f09b902d519" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Engine/InputData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/Weapon/Bullet.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/Weapon/Pistol.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/Weapon/Shoot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Entites/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/Entity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Entites/EntityProcessing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/EntityProcessing.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Entites/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Scripts work with Source/TextureSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Scripts work with Source/TextureSource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Weapon/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Weapon/Bullet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Weapon/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Weapon/Weapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/WorldSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/WorldSystem.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,11 +25,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b3f3e3d470644786bce7a05008b0d88fed800/6d/6a9e9047/MouseState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b3f3e3d470644786bce7a05008b0d88fed800/7a/fccacd64/Game.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b3f3e3d470644786bce7a05008b0d88fed800/a7/bcb5d617/KeyboardState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b3f3e3d470644786bce7a05008b0d88fed800/cd/106557b0/Vector2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b3f3e3d470644786bce7a05008b0d88fed800/ff/c298771b/Keys.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/ImperiumKosiakov/KosShooter/KoShooter/Engine/KosShooter.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -102,7 +100,8 @@
       <workItem from="1683555048524" duration="2954000" />
       <workItem from="1683615381926" duration="9291000" />
       <workItem from="1683642119927" duration="4820000" />
-      <workItem from="1683893645945" duration="12856000" />
+      <workItem from="1683893645945" duration="16649000" />
+      <workItem from="1683969583892" duration="3750000" />
     </task>
     <task id="LOCAL-00001" summary="ItJustWork Code.Add Wasd controller and Mouse Rotation">
       <created>1683135075077</created>
@@ -146,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683646364047</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add Shoot and Bullet like class">
+      <created>1683958835589</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683958835589</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +178,7 @@
     <MESSAGE value="GetFullScreen support" />
     <MESSAGE value="Ups...I fogot add this file in Github" />
     <MESSAGE value="Restructize Project.Add texture Gun,Bullet, Enemy. Add Enemy func FindPlayer." />
-    <option name="LAST_COMMIT_MESSAGE" value="Restructize Project.Add texture Gun,Bullet, Enemy. Add Enemy func FindPlayer." />
+    <MESSAGE value="Add Shoot and Bullet like class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Shoot and Bullet like class" />
   </component>
 </project>
