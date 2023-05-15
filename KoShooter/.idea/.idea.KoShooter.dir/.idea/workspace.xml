@@ -8,12 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f41e3c5-26b5-4cc4-9c32-2f09b902d519" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Engine/Weapon/Pistol.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/Weapon/Shoot.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/Weapon/Shootgun.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Entites/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Entites/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/Entity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Entites/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Scripts work with Source/TextureSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Scripts work with Source/TextureSource.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Weapon/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Weapon/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Weapon/Pistol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Weapon/Pistol.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Weapon/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Weapon/Weapon.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +31,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b3f3e3d470644786bce7a05008b0d88fed800/a7/bcb5d617/KeyboardState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b3f3e3d470644786bce7a05008b0d88fed800/cd/106557b0/Vector2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b3f3e3d470644786bce7a05008b0d88fed800/ff/c298771b/Keys.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/ImperiumKosiakov/KosShooter/KoShooter/Engine/Weapon/Bullet.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -102,6 +104,14 @@
       <workItem from="1683642119927" duration="4820000" />
       <workItem from="1683893645945" duration="16649000" />
       <workItem from="1683969583892" duration="3750000" />
+      <workItem from="1683979510990" duration="458000" />
+      <workItem from="1683980083165" duration="225000" />
+      <workItem from="1683980341993" duration="151000" />
+      <workItem from="1683982885703" duration="1299000" />
+      <workItem from="1683985205577" duration="2836000" />
+      <workItem from="1683996228373" duration="1213000" />
+      <workItem from="1684046271763" duration="1239000" />
+      <workItem from="1684153673202" duration="2875000" />
     </task>
     <task id="LOCAL-00001" summary="ItJustWork Code.Add Wasd controller and Mouse Rotation">
       <created>1683135075077</created>
@@ -152,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683958835589</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add absctract class Weapon, add physic bullets, do class Pistol.cs">
+      <created>1683979595864</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683979595864</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +196,7 @@
     <MESSAGE value="Ups...I fogot add this file in Github" />
     <MESSAGE value="Restructize Project.Add texture Gun,Bullet, Enemy. Add Enemy func FindPlayer." />
     <MESSAGE value="Add Shoot and Bullet like class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Shoot and Bullet like class" />
+    <MESSAGE value="Add absctract class Weapon, add physic bullets, do class Pistol.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add absctract class Weapon, add physic bullets, do class Pistol.cs" />
   </component>
 </project>

@@ -13,41 +13,43 @@ namespace KosShooter;
 
 public abstract class Weapon
 {
-    public Texture2D Texture;
-    public byte Damage;
+    public Texture2D TextureGunWithPlayer;
+    public Texture2D TextureGunOnFloor;
+    public float Damage;
     public byte RateOfFire;
     public float MuzzleVelocity;
-    public byte Cooldown;
-    public float Tochnost;
-    public byte Magazine;
-    public byte CurrentMagazine;
+    public byte DelayBetweenShots;
+    public float WeaponSpread;
+    public byte WeaponStore;
+    public byte RemainingBullets;
     public byte ReloadVelocity;
+    public float DamageDropWithDistance;
+    
     public virtual void ShootCooldown(GameTime gameTime)
     {
-        if (Mouse.GetState().LeftButton == ButtonState.Pressed && Cooldown==0)
+        if (Mouse.GetState().LeftButton == ButtonState.Pressed && DelayBetweenShots==0)
         {
-            if (CurrentMagazine==0)
+            if (RemainingBullets==0)
                 Reload();
             else
             {
-                Cooldown = RateOfFire;
+                DelayBetweenShots = RateOfFire;
                 CreateBullet();
-                CurrentMagazine--;      
+                RemainingBullets--;      
             }
         }
-        if (Cooldown > 0)
-            Cooldown--;
+        if (DelayBetweenShots > 0)
+            DelayBetweenShots--;
     }
-
     public virtual void Reload()
     {
         //ToDo SoundReload
-        Cooldown = ReloadVelocity;
-        CurrentMagazine = Magazine;
+        DelayBetweenShots = ReloadVelocity;
+        RemainingBullets = WeaponStore;
     }
     public abstract void CreateBullet();
-    public virtual Texture2D GetTexture()
+    public virtual Texture2D GetTexturePlayerWithGun()
     {
-        return Texture;
+        return TextureGunWithPlayer;
     }
 }

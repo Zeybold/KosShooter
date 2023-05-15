@@ -13,7 +13,9 @@ namespace KosShooter;
 public class Player : Entity
 {
     public static readonly Player Creature = new();
-    public static Weapon CurrentWeapon;
+    private static Weapon CurrentWeapon;
+    public static List<Weapon> WeaponInventory;
+    public static int HP;
     private Player()
     {
         Texture = TextureSource.Player;
@@ -43,10 +45,9 @@ public class Player : Entity
 
     private void ChangeWeapon()
     {
-        if (CurrentWeapon.Texture!=Texture)
-            Texture = CurrentWeapon.Texture;
+        if (CurrentWeapon.TextureGunWithPlayer!=Texture)
+            Texture = CurrentWeapon.TextureGunWithPlayer;
     }
-    
 
     public override void Update(GameTime gameTime)
     {

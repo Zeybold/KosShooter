@@ -13,7 +13,7 @@ public abstract class Entity
     protected float Velocity;
     protected float Rotation;
     public bool isExists = true;
-    private Vector2 Size => new(Texture.Width, Texture.Height);
+    protected Vector2 Size => new(Texture.Width, Texture.Height);
 
     public abstract void Update(GameTime gameTime);
     public virtual void Draw()

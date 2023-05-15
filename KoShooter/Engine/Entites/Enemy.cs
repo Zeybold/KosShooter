@@ -20,6 +20,7 @@ public class Enemy : Entity
     {
         FindPlayer();
     }
+    
     private void FindPlayer()
     {
         var mousePosition = Player.Creature.GetPositionEntity();

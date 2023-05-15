@@ -8,25 +8,26 @@ public class Pistol : Weapon
 {
     public Pistol()
     {
-        Texture = TextureSource.PlayerWithPistols;
-        Damage = 10;
+        TextureGunWithPlayer = TextureSource.PlayerWithPistols;
+        Damage = 10f;
         RateOfFire = 15;
         MuzzleVelocity = 16.5f;
-        Cooldown = RateOfFire;
-        Tochnost = 0.5f;
-        Magazine = 15;
-        CurrentMagazine = Magazine;
+        DelayBetweenShots = RateOfFire;
+        WeaponSpread = 0.4f;
+        WeaponStore = 12;
+        RemainingBullets = WeaponStore;
         ReloadVelocity = 30;
+        DamageDropWithDistance = 0.07f;
     }
     public override void CreateBullet()
     {
         var position = Player.Creature.GetPositionEntity();
-        position.X -= 54f*(float)Math.Cos(Player.Creature.GetRotationEntity()+Math.PI/2-0.5f);
-        position.Y -= 54f*(float)Math.Sin(Player.Creature.GetRotationEntity()+Math.PI/2-0.5f);
-        EntityProcessing.Add(new Bullet(position,MuzzleVelocity,Tochnost));
+        position.X -= 55f*(float)Math.Cos(Player.Creature.GetRotationEntity()+Math.PI/2-0.5f);
+        position.Y -= 55f*(float)Math.Sin(Player.Creature.GetRotationEntity()+Math.PI/2-0.5f);
+        EntityProcessing.Add(new Bullet(position,MuzzleVelocity,WeaponSpread,Damage,DamageDropWithDistance));
         position = Player.Creature.GetPositionEntity();
-        position.X -= 54f*(float)Math.Cos(Player.Creature.GetRotationEntity()+Math.PI/2+0.5f);
-        position.Y -= 54f*(float)Math.Sin(Player.Creature.GetRotationEntity()+Math.PI/2+0.5f);
-        EntityProcessing.Add(new Bullet(position,MuzzleVelocity,Tochnost));
+        position.X -= 55f*(float)Math.Cos(Player.Creature.GetRotationEntity()+Math.PI/2+0.5f);
+        position.Y -= 55f*(float)Math.Sin(Player.Creature.GetRotationEntity()+Math.PI/2+0.5f);
+        EntityProcessing.Add(new Bullet(position,MuzzleVelocity,WeaponSpread,Damage,DamageDropWithDistance));
     }
 }
