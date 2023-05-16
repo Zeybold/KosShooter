@@ -10,15 +10,18 @@ namespace KosShooter;
 
 public class Enemy : Entity
 {
-    public Enemy()
+    public Enemy(Vector2 position)
     {
         Texture = TextureSource.Enemy;
-        Position = new Vector2(150, 150);
+        Position = position;
         Velocity = 3;
     }
     public override void Update(GameTime gameTime)
     {
         FindPlayer();
+        NonsensicalMove();
+        if (Position.X > Configurations.ScreenWidth || Position.Y > Configurations.ScreenHeight)
+            isExists = false;
     }
     
     private void FindPlayer()
@@ -28,4 +31,12 @@ public class Enemy : Entity
         var angle = (float)Math.Atan2(direction.Y, direction.X) + (float)Math.PI/2;
         Rotation = angle;
     }
+
+    private void NonsensicalMove()
+    {
+        var rnd = new Random();
+        Position.X += rnd.Next(-5, 5);
+        Position.Y += rnd.Next(-5, 5);
+    }
+
 }

@@ -31,10 +31,7 @@ public static class EntityProcessing
     }
     public static void Draw()
     {
-        lock (_entities)
-        {
-            foreach (var entity in _entities)
+        foreach (var entity in _entities)
                 entity.Draw();
-        }
     }
 }

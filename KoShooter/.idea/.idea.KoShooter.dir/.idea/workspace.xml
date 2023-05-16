@@ -8,14 +8,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f41e3c5-26b5-4cc4-9c32-2f09b902d519" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Engine/Weapon/Shootgun.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/Weapon/WeaponInventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/shelf/Uncommitted_changes_before_rebase__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Entites/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Entites/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/TypeEnemy/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Entites/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Entites/EntityProcessing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/EntityProcessing.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Entites/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Weapon/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Weapon/Bullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Weapon/Pistol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Weapon/Pistol.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Weapon/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Weapon/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Weapon/Shoot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/WorldSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/WorldSystem.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +115,8 @@
       <workItem from="1683985205577" duration="2836000" />
       <workItem from="1683996228373" duration="1213000" />
       <workItem from="1684046271763" duration="1239000" />
-      <workItem from="1684153673202" duration="2875000" />
+      <workItem from="1684153673202" duration="4110000" />
+      <workItem from="1684261011524" duration="10628000" />
     </task>
     <task id="LOCAL-00001" summary="ItJustWork Code.Add Wasd controller and Mouse Rotation">
       <created>1683135075077</created>
@@ -169,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683979595864</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add Shootgun weapon">
+      <created>1684163604896</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1684163604896</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,6 +209,7 @@
     <MESSAGE value="Restructize Project.Add texture Gun,Bullet, Enemy. Add Enemy func FindPlayer." />
     <MESSAGE value="Add Shoot and Bullet like class" />
     <MESSAGE value="Add absctract class Weapon, add physic bullets, do class Pistol.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add absctract class Weapon, add physic bullets, do class Pistol.cs" />
+    <MESSAGE value="Add Shootgun weapon" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Shootgun weapon" />
   </component>
 </project>

@@ -13,15 +13,15 @@ namespace KosShooter;
 public class Player : Entity
 {
     public static readonly Player Creature = new();
-    private static Weapon CurrentWeapon;
-    public static List<Weapon> WeaponInventory;
-    public static int HP;
+    private WeaponInventory WeaponInventory = new ();
+    
     private Player()
     {
         Texture = TextureSource.Player;
         Position = new Vector2(100, 100);
         Velocity = 3;
-        CurrentWeapon = new Pistol();
+        WeaponInventory.AddWeapon(new Pistol());
+        WeaponInventory.AddWeapon(new Shootgun());
     }
     private void MovePlayer()
     {
@@ -33,6 +33,7 @@ public class Player : Entity
             Position.Y+=Velocity;
         if (Keyboard.GetState().IsKeyDown(Keys.D))
             Position.X+=Velocity;
+        WeaponInventory.ChangeGun(Mouse.GetState().ScrollWheelValue);
     }
 
     private void RotationPlayer()
@@ -45,15 +46,15 @@ public class Player : Entity
 
     private void ChangeWeapon()
     {
-        if (CurrentWeapon.TextureGunWithPlayer!=Texture)
-            Texture = CurrentWeapon.TextureGunWithPlayer;
+        if (WeaponInventory.CurrentWeapon.TextureGunWithPlayer != Texture)
+            Texture = WeaponInventory.CurrentWeapon.TextureGunWithPlayer;
     }
 
     public override void Update(GameTime gameTime)
     {
         MovePlayer();
         RotationPlayer();
-        CurrentWeapon.ShootCooldown(gameTime);
+        WeaponInventory.CurrentWeapon.ShootCooldown(gameTime);
         ChangeWeapon();
     }
 }
