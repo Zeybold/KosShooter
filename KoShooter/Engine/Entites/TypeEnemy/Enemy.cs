@@ -19,7 +19,7 @@ public class Enemy : Entity
     public override void Update(GameTime gameTime)
     {
         FindPlayer();
-        NonsensicalMove();
+        //NonsensicalMove();
         if (Position.X > Configurations.ScreenWidth || Position.Y > Configurations.ScreenHeight)
             isExists = false;
     }
@@ -28,15 +28,17 @@ public class Enemy : Entity
     {
         var mousePosition = Player.Creature.GetPositionEntity();
         var direction = Vector2.Normalize(mousePosition - Position);
-        var angle = (float)Math.Atan2(direction.Y, direction.X) + (float)Math.PI/2;
-        Rotation = angle;
+        var angle = (float)Math.Atan2(direction.Y, direction.X);
+        Position += new Vector2(direction.X, direction.Y)*Velocity;
+        
+        Rotation = angle+(float)Math.PI/2;
     }
 
     private void NonsensicalMove()
     {
-        var rnd = new Random();
-        Position.X += rnd.Next(-5, 5);
-        Position.Y += rnd.Next(-5, 5);
+        
+        Position.X += Velocity * (float)Math.Cos(Rotation - Math.PI / 2);
+        Position.Y += Velocity * (float)Math.Cos(Rotation - Math.PI / 2);
     }
 
 }

@@ -12,7 +12,7 @@ public abstract class Entity
     protected Vector2 Position;
     protected float Velocity;
     protected float Rotation;
-    public float Radius = 20;
+    
     public bool isExists = true;
     protected Vector2 Size => new(Texture.Width, Texture.Height);
 

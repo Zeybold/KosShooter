@@ -22,14 +22,14 @@ public class Bullet : Entity
         Damage = damage;
         DamageDropWithDistance = damageDropWithDistance;
         var greatRandom = new Random();
-        Rotation = RandomUtil.NextFloat(greatRandom,-weaponSpread,weaponSpread)+Player.Creature.GetRotationEntity();
+        Rotation = RandomUtil.NextFloat(greatRandom,-weaponSpread*Player.Creature.PlayerSkill.SharpShooting,weaponSpread*Player.Creature.PlayerSkill.SharpShooting)+Player.Creature.GetRotationEntity();
     }
     public override void Update(GameTime gameTime)
     {
         Position.X += (float)(Velocity*Math.Cos(Rotation-Math.PI/2));
         Position.Y += (float)(Velocity*Math.Sin(Rotation-Math.PI/2));
         Damage -= DamageDropWithDistance;
-        if (Position.X > Configurations.ScreenWidth || Position.Y > Configurations.ScreenHeight || Damage<=0)
+        if (Damage<=0)
             isExists = false;
     }
 }

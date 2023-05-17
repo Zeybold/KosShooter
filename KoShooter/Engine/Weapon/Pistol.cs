@@ -13,7 +13,7 @@ public class Pistol : Weapon
         RateOfFire = 15;
         MuzzleVelocity = 16.5f;
         DelayBetweenShots = RateOfFire;
-        WeaponSpread = 0.4f;
+        WeaponSpread = 0.5f;
         WeaponStore = 12;
         RemainingBullets = WeaponStore;
         ReloadVelocity = 30;

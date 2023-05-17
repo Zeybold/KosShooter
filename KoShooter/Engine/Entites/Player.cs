@@ -14,28 +14,29 @@ public class Player : Entity
 {
     public static readonly Player Creature = new();
     private WeaponInventory WeaponInventory = new ();
-    
+    public PlayerSkills PlayerSkill = new ();
     private Player()
     {
         Texture = TextureSource.Player;
-        Position = new Vector2(100, 100);
-        Velocity = 3;
+        Position = new Vector2(500, 500);
+        Velocity = 3.25f;
         WeaponInventory.AddWeapon(new Pistol());
         WeaponInventory.AddWeapon(new Shootgun());
     }
     private void MovePlayer()
     {
+        var direction = Vector2.Zero;
         if (Keyboard.GetState().IsKeyDown(Keys.W))
-            Position.Y-=Velocity;
+            direction.Y-=Velocity*PlayerSkill.Speed;
         if (Keyboard.GetState().IsKeyDown(Keys.A))
-            Position.X-=Velocity;
+            direction.X-=Velocity*PlayerSkill.Speed;
         if (Keyboard.GetState().IsKeyDown(Keys.S))
-            Position.Y+=Velocity;
+            direction.Y+=Velocity*PlayerSkill.Speed;
         if (Keyboard.GetState().IsKeyDown(Keys.D))
-            Position.X+=Velocity;
+            direction.X+=Velocity*PlayerSkill.Speed;
+        Position += direction;
         WeaponInventory.ChangeGun(Mouse.GetState().ScrollWheelValue);
     }
-
     private void RotationPlayer()
     {
         var mousePosition = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
@@ -43,9 +44,10 @@ public class Player : Entity
         var angle = (float)Math.Atan2(direction.Y, direction.X) + (float)Math.PI/2;
         Rotation = angle;
     }
-
+    
     private void ChangeWeapon()
     {
+        WeaponInventory.ChangeGun(Mouse.GetState().ScrollWheelValue);
         if (WeaponInventory.CurrentWeapon.TextureGunWithPlayer != Texture)
             Texture = WeaponInventory.CurrentWeapon.TextureGunWithPlayer;
     }
@@ -54,7 +56,7 @@ public class Player : Entity
     {
         MovePlayer();
         RotationPlayer();
-        WeaponInventory.CurrentWeapon.ShootCooldown(gameTime);
         ChangeWeapon();
+        WeaponInventory.CurrentWeapon.ShootCooldown(gameTime);
     }
 }
