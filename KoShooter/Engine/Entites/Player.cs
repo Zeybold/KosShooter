@@ -34,8 +34,9 @@ public class Player : Entity
             direction.Y+=Velocity*PlayerSkill.Speed;
         if (Keyboard.GetState().IsKeyDown(Keys.D))
             direction.X+=Velocity*PlayerSkill.Speed;
+        if (Keyboard.GetState().IsKeyDown(Keys.R))
+            WeaponInventory.CurrentWeapon.Reload();
         Position += direction;
-        WeaponInventory.ChangeGun(Mouse.GetState().ScrollWheelValue);
     }
     private void RotationPlayer()
     {
@@ -57,6 +58,7 @@ public class Player : Entity
         MovePlayer();
         RotationPlayer();
         ChangeWeapon();
+        CollisionUpdate();
         WeaponInventory.CurrentWeapon.ShootCooldown(gameTime);
     }
 }

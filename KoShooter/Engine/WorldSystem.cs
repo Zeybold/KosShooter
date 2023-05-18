@@ -14,7 +14,7 @@ public class WorldSystem
     {
         EntityProcessing.Add(Player.Creature);
         var rnd = new Random();
-        for (var i = 0; i < 10; i++)
+        for (var i = 0; i < 1000; i++)
         {
             EntityProcessing.Add(new Enemy(new Vector2(new Random().Next(0,Configurations.ScreenWidth),new Random().Next(0,Configurations.ScreenHeight))));
         }

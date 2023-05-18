@@ -31,5 +31,6 @@ public class Bullet : Entity
         Damage -= DamageDropWithDistance;
         if (Damage<=0)
             isExists = false;
+        CollisionUpdate();
     }
 }
