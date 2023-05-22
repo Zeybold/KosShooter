@@ -14,7 +14,6 @@ namespace KosShooter;
 public abstract class Weapon
 {
     public Texture2D TextureGunWithPlayer;
-    public Texture2D TextureGunOnFloor;
     public float Damage;
     public byte RateOfFire;
     public float MuzzleVelocity;
@@ -48,7 +47,7 @@ public abstract class Weapon
         RemainingBullets = WeaponStore;
     }
     public abstract void CreateBullet();
-    public virtual Texture2D GetTexturePlayerWithGun()
+    public Texture2D GetTexturePlayerWithGun()
     {
         return TextureGunWithPlayer;
     }

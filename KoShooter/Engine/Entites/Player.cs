@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace KosShooter;
 
-public class Player : Entity
+public class Player : Entity,IMovement
 {
     public static readonly Player Creature = new();
     private WeaponInventory WeaponInventory = new ();
@@ -19,24 +19,9 @@ public class Player : Entity
     {
         Texture = TextureSource.Player;
         Position = new Vector2(500, 500);
-        Velocity = 3.25f;
+        Velocity = 150f;
         WeaponInventory.AddWeapon(new Pistol());
         WeaponInventory.AddWeapon(new Shootgun());
-    }
-    private void MovePlayer()
-    {
-        var direction = Vector2.Zero;
-        if (Keyboard.GetState().IsKeyDown(Keys.W))
-            direction.Y-=Velocity*PlayerSkill.Speed;
-        if (Keyboard.GetState().IsKeyDown(Keys.A))
-            direction.X-=Velocity*PlayerSkill.Speed;
-        if (Keyboard.GetState().IsKeyDown(Keys.S))
-            direction.Y+=Velocity*PlayerSkill.Speed;
-        if (Keyboard.GetState().IsKeyDown(Keys.D))
-            direction.X+=Velocity*PlayerSkill.Speed;
-        if (Keyboard.GetState().IsKeyDown(Keys.R))
-            WeaponInventory.CurrentWeapon.Reload();
-        Position += direction;
     }
     private void RotationPlayer()
     {
@@ -51,14 +36,30 @@ public class Player : Entity
         WeaponInventory.ChangeGun(Mouse.GetState().ScrollWheelValue);
         if (WeaponInventory.CurrentWeapon.TextureGunWithPlayer != Texture)
             Texture = WeaponInventory.CurrentWeapon.TextureGunWithPlayer;
+        if (Keyboard.GetState().IsKeyDown(Keys.R))
+            WeaponInventory.CurrentWeapon.Reload();
     }
 
     public override void Update(GameTime gameTime)
     {
-        MovePlayer();
+        Move(gameTime);
         RotationPlayer();
         ChangeWeapon();
         CollisionUpdate();
         WeaponInventory.CurrentWeapon.ShootCooldown(gameTime);
+    }
+
+    public void Move(GameTime gameTime)
+    {
+        var direction = Vector2.Zero;
+        if (Keyboard.GetState().IsKeyDown(Keys.W))
+            direction.Y--;
+        if (Keyboard.GetState().IsKeyDown(Keys.A))
+            direction.X--;
+        if (Keyboard.GetState().IsKeyDown(Keys.S))
+            direction.Y++;
+        if (Keyboard.GetState().IsKeyDown(Keys.D))
+            direction.X++;
+        Position += direction * Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
     }
 }

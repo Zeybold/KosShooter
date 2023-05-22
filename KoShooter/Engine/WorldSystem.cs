@@ -14,11 +14,10 @@ public class WorldSystem
     {
         EntityProcessing.Add(Player.Creature);
         var rnd = new Random();
-        for (var i = 0; i < 1000; i++)
+        for (var i = 0; i < 100; i++)
         {
-            EntityProcessing.Add(new Enemy(new Vector2(new Random().Next(0,Configurations.ScreenWidth),new Random().Next(0,Configurations.ScreenHeight))));
+            EntityProcessing.Add(new Enemy(new Vector2(rnd.Next(0,Configurations.ScreenWidth),rnd.Next(0,Configurations.ScreenHeight))));
         }
-
         Mouse.SetCursor(MouseCursor.FromTexture2D(Configurations.ContentGame.Load<Texture2D>("TextureGames/Cursor/aim"),10,10));
     }
 

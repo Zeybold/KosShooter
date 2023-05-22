@@ -6,7 +6,7 @@ public class Shootgun : Weapon
 {
     public Shootgun()
     {
-        TextureGunWithPlayer = TextureSource.Gun1;
+        TextureGunWithPlayer = TextureSource.PlayerWithShootgun;
         Damage = 50f;
         RateOfFire = 15;
         MuzzleVelocity = 16.5f;

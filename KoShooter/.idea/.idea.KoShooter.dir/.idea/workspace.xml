@@ -8,14 +8,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f41e3c5-26b5-4cc4-9c32-2f09b902d519" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Engine/Collision.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/Scripts/IMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TextureGames/PlayerModel/PlayerWithGun.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TextureGames/PlayerModel/TexturePlayer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Collision.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Entites/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/Entity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Entites/EntityProcessing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/EntityProcessing.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Entites/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Entites/TypeEnemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/TypeEnemy/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Scripts work with Source/PlayerSkills.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Scripts work with Source/PlayerSkills.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/InputData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Scripts work with Source/Configurations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Scripts/Configurations.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Scripts work with Source/PlayerSkills.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Scripts/PlayerSkills.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Scripts work with Source/TextureSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Scripts/TextureSource.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Weapon/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Weapon/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Weapon/Shootgun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Weapon/Shootgun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Weapon/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Weapon/Weapon.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/WorldSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/WorldSystem.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +125,11 @@
       <workItem from="1684261011524" duration="10815000" />
       <workItem from="1684307505384" duration="5888000" />
       <workItem from="1684327009427" duration="7584000" />
-      <workItem from="1684409905028" duration="7676000" />
+      <workItem from="1684409905028" duration="8315000" />
+      <workItem from="1684476469373" duration="7214000" />
+      <workItem from="1684591202499" duration="733000" />
+      <workItem from="1684688401674" duration="2435000" />
+      <workItem from="1684749800171" duration="10787000" />
     </task>
     <task id="LOCAL-00001" summary="ItJustWork Code.Add Wasd controller and Mouse Rotation">
       <created>1683135075077</created>
@@ -195,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684347000757</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add first Version Collision">
+      <created>1684441062042</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1684441062042</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +246,7 @@
     <MESSAGE value="Add Shootgun weapon" />
     <MESSAGE value="Add WeaponInventor" />
     <MESSAGE value="Add PlayerSkills(not yet working)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add PlayerSkills(not yet working)" />
+    <MESSAGE value="Add first Version Collision" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add first Version Collision" />
   </component>
 </project>

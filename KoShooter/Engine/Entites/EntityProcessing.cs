@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using SharpDX.Direct3D11;
 
 namespace KosShooter;
 
@@ -28,26 +29,6 @@ public static class EntityProcessing
             foreach (var entity in _addEntities)
                 _entities.Add(entity);
             _addEntities.Clear();
-            //ToDo Lower String more better
-            for (var i = 0; i < _entities.Count; i++)
-            {
-                for (var j =i; j < _entities.Count; j++)
-                {
-                    if (IsCollise(_entities[i].CollisionRectangle, _entities[j].CollisionRectangle) && i != j)
-                    {
-                        if (_entities[i] is Bullet && _entities[j] is Enemy)
-                        {
-                            _entities[i].isExists=false;
-                            (_entities[j] as Enemy).HP -= (_entities[i] as Bullet).Damage;
-                        }
-                        if (_entities[i] is Enemy && _entities[j] is Bullet)
-                        {
-                            _entities[j].isExists=false;
-                            (_entities[i] as Enemy).HP -= (_entities[j] as Bullet).Damage;
-                        }
-                    }
-                }
-            }
             _entities = _entities.Where(x => x.isExists).ToList();
         }
     }
@@ -64,7 +45,6 @@ public static class EntityProcessing
 
         if (a[0].Y > b[3].Y || b[0].Y > a[3].Y)
             return false;
-
         return true;
     }
 }

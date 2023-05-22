@@ -12,7 +12,7 @@ public abstract class Entity
     protected Vector2 Position;
     protected float Velocity;
     protected float Rotation;
-    public Vector2[] CollisionRectangle = new Vector2[4];
+    protected Vector2[] CollisionRectangle = new Vector2[4];
     public bool isExists = true;
     public Vector2 Size => new(Texture.Width, Texture.Height);
 

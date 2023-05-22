@@ -10,7 +10,7 @@ using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace KosShooter;
 
-public class Bullet : Entity
+public class Bullet : Entity,IMovement
 {
     public float Damage;
     public float DamageDropWithDistance;
@@ -26,11 +26,19 @@ public class Bullet : Entity
     }
     public override void Update(GameTime gameTime)
     {
-        Position.X += (float)(Velocity*Math.Cos(Rotation-Math.PI/2));
-        Position.Y += (float)(Velocity*Math.Sin(Rotation-Math.PI/2));
+        Move(gameTime);
         Damage -= DamageDropWithDistance;
         if (Damage<=0)
             isExists = false;
         CollisionUpdate();
+    }
+    
+
+    public void Move(GameTime gameTime)
+    {
+        var direction = Vector2.Zero;
+        direction.X += (float)Math.Cos(Rotation-Math.PI/2);
+        direction.Y += (float)Math.Sin(Rotation-Math.PI/2);
+        Position += direction * Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
     }
 }

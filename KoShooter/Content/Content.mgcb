@@ -37,7 +37,7 @@
 /processorParam:TextureFormat=Color
 /build:TextureGames/Enemies/enemy1.png
 
-#begin TextureGames/PlayerModel/PlayerWithGun.png
+#begin TextureGames/PlayerModel/Kosiak85x128.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -47,9 +47,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:TextureGames/PlayerModel/PlayerWithGun.png
+/build:TextureGames/PlayerModel/Kosiak85x128.png
 
-#begin TextureGames/PlayerModel/TexturePlayer.png
+#begin TextureGames/PlayerModel/Kosiak85x128Shootgun.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -59,7 +59,31 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:TextureGames/PlayerModel/TexturePlayer.png
+/build:TextureGames/PlayerModel/Kosiak85x128Shootgun.png
+
+#begin TextureGames/PlayerModel/Kosiak85x80.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:TextureGames/PlayerModel/Kosiak85x80.png
+
+#begin TextureGames/PlayerModel/KosiakShootgun.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:TextureGames/PlayerModel/KosiakShootgun.png
 
 #begin TextureGames/Weapons/silver-bullet.png
 /importer:TextureImporter
