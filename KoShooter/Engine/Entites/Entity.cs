@@ -12,17 +12,17 @@ public abstract class Entity
     protected Vector2 Position;
     protected float Velocity;
     protected float Rotation;
-    protected Vector2[] CollisionRectangle = new Vector2[4];
+    private readonly Vector2[] CollisionRectangle = new Vector2[4];
     public bool isExists = true;
     public Vector2 Size => new(Texture.Width, Texture.Height);
 
-    public abstract void Update(GameTime gameTime);
+    public abstract void Update();
     public virtual void Draw()
     {
         Configurations.SpriteBatch.Draw(Texture, Position, null, Configurations.BaseColor, Rotation, Size/2,1, 0, 0);
     }
 
-    public void CollisionUpdate()
+    protected void CollisionUpdate()
     {
         CollisionRectangle[0] = new Vector2(Position.X, Position.Y);
         CollisionRectangle[1] = new Vector2(Position.X+Size.X, Position.Y);

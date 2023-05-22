@@ -18,9 +18,9 @@ public class Enemy : Entity,IMovement
         Velocity = 150;
         HP = 100;
     }
-    public override void Update(GameTime gameTime)
+    public override void Update()
     {
-        Move(gameTime);
+        Move();
         FindPlayer();
         CollisionUpdate();
         if (HP<=0)
@@ -35,10 +35,12 @@ public class Enemy : Entity,IMovement
         Rotation = angle+(float)Math.PI/2;
     }
 
-    public void Move(GameTime gameTime)
+    public void Move()
     {
         var positionPlayer = Player.Creature.GetPositionEntity();
-        var direction = Vector2.Normalize(positionPlayer - Position);
-        Position += direction * Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+        var direction = positionPlayer - Position;
+        if (!(direction.Length() > 4)) return;
+        direction.Normalize();
+        Position += direction * Velocity * Configurations.IndependentActionsFromFramrate;
     }
 }

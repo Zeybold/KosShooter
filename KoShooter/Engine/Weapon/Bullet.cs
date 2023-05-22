@@ -24,21 +24,25 @@ public class Bullet : Entity,IMovement
         var greatRandom = new Random();
         Rotation = RandomUtil.NextFloat(greatRandom,-weaponSpread*Player.Creature.PlayerSkill.SharpShooting,weaponSpread*Player.Creature.PlayerSkill.SharpShooting)+Player.Creature.GetRotationEntity();
     }
-    public override void Update(GameTime gameTime)
+    public override void Update()
     {
-        Move(gameTime);
-        Damage -= DamageDropWithDistance;
-        if (Damage<=0)
-            isExists = false;
+        Move();
+        LossOfDamage();
         CollisionUpdate();
     }
-    
 
-    public void Move(GameTime gameTime)
+    private void LossOfDamage()
+    {
+        Damage -= DamageDropWithDistance*Configurations.IndependentActionsFromFramrate;
+        if (Damage<=0)
+            isExists = false;
+    }
+    public void Move()
     {
         var direction = Vector2.Zero;
         direction.X += (float)Math.Cos(Rotation-Math.PI/2);
         direction.Y += (float)Math.Sin(Rotation-Math.PI/2);
-        Position += direction * Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+        direction.Normalize();
+        Position += direction * Velocity * Configurations.IndependentActionsFromFramrate;
     }
 }

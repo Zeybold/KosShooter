@@ -9,7 +9,7 @@ public class Shootgun : Weapon
         TextureGunWithPlayer = TextureSource.PlayerWithShootgun;
         Damage = 50f;
         RateOfFire = 15;
-        MuzzleVelocity = 16.5f;
+        MuzzleVelocity = 1400f;
         DelayBetweenShots = RateOfFire;
         WeaponSpread = 1f;
         WeaponStore = 6;

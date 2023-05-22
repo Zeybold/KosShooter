@@ -23,14 +23,7 @@ public class Player : Entity,IMovement
         WeaponInventory.AddWeapon(new Pistol());
         WeaponInventory.AddWeapon(new Shootgun());
     }
-    private void RotationPlayer()
-    {
-        var mousePosition = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
-        var direction = Vector2.Normalize(mousePosition - Position);
-        var angle = (float)Math.Atan2(direction.Y, direction.X) + (float)Math.PI/2;
-        Rotation = angle;
-    }
-    
+
     private void ChangeWeapon()
     {
         WeaponInventory.ChangeGun(Mouse.GetState().ScrollWheelValue);
@@ -40,26 +33,24 @@ public class Player : Entity,IMovement
             WeaponInventory.CurrentWeapon.Reload();
     }
 
-    public override void Update(GameTime gameTime)
+    public override void Update()
     {
-        Move(gameTime);
+        InputData.FreezingTime();
+        Move();
         RotationPlayer();
         ChangeWeapon();
         CollisionUpdate();
-        WeaponInventory.CurrentWeapon.ShootCooldown(gameTime);
+        WeaponInventory.CurrentWeapon.ShootCooldown();
     }
-
-    public void Move(GameTime gameTime)
+    private void RotationPlayer()
     {
-        var direction = Vector2.Zero;
-        if (Keyboard.GetState().IsKeyDown(Keys.W))
-            direction.Y--;
-        if (Keyboard.GetState().IsKeyDown(Keys.A))
-            direction.X--;
-        if (Keyboard.GetState().IsKeyDown(Keys.S))
-            direction.Y++;
-        if (Keyboard.GetState().IsKeyDown(Keys.D))
-            direction.X++;
-        Position += direction * Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+        Rotation = InputData.GetAngleRotation();
+    }
+    public void Move()
+    {
+        var direction = InputData.GetMovement();
+        if (direction == Vector2.Zero) return;
+        direction.Normalize();
+        Position += direction * Velocity * Configurations.IndependentActionsFromFramrate;
     }
 }

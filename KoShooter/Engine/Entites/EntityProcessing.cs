@@ -25,7 +25,7 @@ public static class EntityProcessing
         lock (_entities)
         {
             foreach (var entity in _entities)
-                entity.Update(gameTime);
+                entity.Update();
             foreach (var entity in _addEntities)
                 _entities.Add(entity);
             _addEntities.Clear();

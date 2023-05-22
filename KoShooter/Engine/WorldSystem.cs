@@ -23,6 +23,7 @@ public class WorldSystem
 
     public void Update(GameTime gameTime)
     {
+        InputData.RegistrationKey();
         EntityProcessing.Update(gameTime);
     }
 

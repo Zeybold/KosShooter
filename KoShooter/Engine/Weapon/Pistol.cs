@@ -11,13 +11,13 @@ public class Pistol : Weapon
         TextureGunWithPlayer = TextureSource.PlayerWithPistols;
         Damage = 10f;
         RateOfFire = 15;
-        MuzzleVelocity = 16.5f;
+        MuzzleVelocity = 1400f;
         DelayBetweenShots = RateOfFire;
         WeaponSpread = 0.5f;
         WeaponStore = 12;
         RemainingBullets = WeaponStore;
         ReloadVelocity = 30;
-        DamageDropWithDistance = 0.07f;
+        DamageDropWithDistance = 0.7f;
     }
     public override void CreateBullet()
     {

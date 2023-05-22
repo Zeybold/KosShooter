@@ -24,7 +24,7 @@ public abstract class Weapon
     public byte ReloadVelocity;
     public float DamageDropWithDistance;
 
-    public virtual void ShootCooldown(GameTime gameTime)
+    public virtual void ShootCooldown()
     {
         if (Mouse.GetState().LeftButton == ButtonState.Pressed && DelayBetweenShots==0)
         {

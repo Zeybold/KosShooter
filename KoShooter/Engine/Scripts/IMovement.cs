@@ -8,5 +8,5 @@ namespace KosShooter;
 
 public interface IMovement
 {
-    public void Move(GameTime gameTime);
+    public void Move();
 }
