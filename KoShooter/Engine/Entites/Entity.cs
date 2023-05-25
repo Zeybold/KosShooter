@@ -13,8 +13,9 @@ public abstract class Entity
     protected float Velocity;
     protected float Rotation;
     private readonly Vector2[] CollisionRectangle = new Vector2[4];
-    public bool isExists = true;
-    public Vector2 Size => new(Texture.Width, Texture.Height);
+    protected GameStatus GameStatus = GameStatus.Exist;
+
+    private Vector2 Size => new(Texture.Width, Texture.Height);
 
     public abstract void Update();
     public virtual void Draw()
@@ -37,6 +38,10 @@ public abstract class Entity
     public float GetRotationEntity()
     {
         return Rotation;
+    }
+    public bool IsExist()
+    {
+        return GameStatus == GameStatus.Exist;
     }
 }
     

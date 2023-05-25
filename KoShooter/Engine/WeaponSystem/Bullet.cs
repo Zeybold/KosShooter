@@ -10,19 +10,19 @@ using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace KosShooter;
 
-public class Bullet : Entity,IMovement
+public class Bullet : Entity,IMovementComponent
 {
-    public float Damage;
-    public float DamageDropWithDistance;
+    private float Damage;
+    private readonly float _damageDropWithDistance;
     public Bullet(Vector2 position, float velocity, float weaponSpread, float damage, float damageDropWithDistance)
     {
         Position = position;
         Velocity = velocity;
         Texture = TextureSource.Bullet;
         Damage = damage;
-        DamageDropWithDistance = damageDropWithDistance;
+        _damageDropWithDistance = damageDropWithDistance;
         var greatRandom = new Random();
-        Rotation = RandomUtil.NextFloat(greatRandom,-weaponSpread*Player.Creature.PlayerSkill.SharpShooting,weaponSpread*Player.Creature.PlayerSkill.SharpShooting)+Player.Creature.GetRotationEntity();
+        Rotation = greatRandom.NextFloat(-weaponSpread*PlayerSkills.SharpShooting,weaponSpread*PlayerSkills.SharpShooting)+Player.Creature.GetRotationEntity();
     }
     public override void Update()
     {
@@ -33,9 +33,9 @@ public class Bullet : Entity,IMovement
 
     private void LossOfDamage()
     {
-        Damage -= DamageDropWithDistance*Configurations.IndependentActionsFromFramrate;
+        Damage -= _damageDropWithDistance*Configurations.IndependentActionsFromFramrate;
         if (Damage<=0)
-            isExists = false;
+            GameStatus = GameStatus.NotExist;
     }
     public void Move()
     {

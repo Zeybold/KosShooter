@@ -1,11 +1,12 @@
 using System.Net.Mime;
+using System.Windows.Forms.VisualStyles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 namespace KosShooter;
 
-public class Configurations
+public static class Configurations
 {
     public static SpriteBatch SpriteBatch;
     public static ContentManager ContentGame;
@@ -14,7 +15,7 @@ public class Configurations
     public static GraphicsDeviceManager GraphicsDeviceManager;
     public static Color BaseColor = Color.White;
     public static float IndependentActionsFromFramrate;
-    public static bool isFreezeTime;
+    public static bool IsFreezeTime;
 
     public static void ScreenResultInit()
     {
@@ -28,13 +29,7 @@ public class Configurations
 
     public static void UpdateGameTime(GameTime gameTime)
     {
-        if (isFreezeTime)
-        {
-            IndependentActionsFromFramrate = (float)gameTime.ElapsedGameTime.TotalSeconds / 5;
-        }
-        else
-        {
-            IndependentActionsFromFramrate = (float)gameTime.ElapsedGameTime.TotalSeconds;
-        }
+        TimeSystem.Update(gameTime);
+        IndependentActionsFromFramrate=TimeSystem.FreezeTime;
     }
 }

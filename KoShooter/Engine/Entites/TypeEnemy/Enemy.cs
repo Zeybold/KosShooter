@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace KosShooter;
 
-public class Enemy : Entity,IMovement
+public class Enemy : Entity,IMovementComponent,IHealthComponent
 {
     public float HP; 
     public Enemy(Vector2 position)
@@ -24,7 +24,7 @@ public class Enemy : Entity,IMovement
         FindPlayer();
         CollisionUpdate();
         if (HP<=0)
-            isExists = false;
+            GameStatus = GameStatus.NotExist;
     }
     
     private void FindPlayer()
@@ -42,5 +42,15 @@ public class Enemy : Entity,IMovement
         if (!(direction.Length() > 4)) return;
         direction.Normalize();
         Position += direction * Velocity * Configurations.IndependentActionsFromFramrate;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Heal(float heal)
+    {
+        throw new NotImplementedException();
     }
 }

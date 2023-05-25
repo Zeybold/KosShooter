@@ -20,7 +20,7 @@ public static class EntityProcessing
     {
         _addEntities.Add(entity);
     }
-    public static void Update(GameTime gameTime)
+    public static void Update()
     {
         lock (_entities)
         {
@@ -29,7 +29,7 @@ public static class EntityProcessing
             foreach (var entity in _addEntities)
                 _entities.Add(entity);
             _addEntities.Clear();
-            _entities = _entities.Where(x => x.isExists).ToList();
+            _entities = _entities.Where(x => x.IsExist()).ToList();
         }
     }
     public static void Draw()

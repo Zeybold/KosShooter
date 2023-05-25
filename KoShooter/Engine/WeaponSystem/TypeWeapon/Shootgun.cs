@@ -10,10 +10,10 @@ public class Shootgun : Weapon
         Damage = 50f;
         RateOfFire = 15;
         MuzzleVelocity = 1400f;
-        DelayBetweenShots = RateOfFire;
         WeaponSpread = 1f;
         WeaponStore = 6;
-        RemainingBullets = WeaponStore;
+        CoolDown = 0;
+        DelayBetweenShoot = 0.25f;
         ReloadVelocity = 30;
         DamageDropWithDistance = 0.5f;
     }
@@ -31,6 +31,6 @@ public class Shootgun : Weapon
         position.X -= 54f*(float)Math.Cos(Player.Creature.GetRotationEntity()+Math.PI/2);
         position.Y -= 54f*(float)Math.Sin(Player.Creature.GetRotationEntity()+Math.PI/2);
         EntityProcessing.Add(new Bullet(position,MuzzleVelocity,WeaponSpread,Damage,DamageDropWithDistance));
-
     }
+    
 }

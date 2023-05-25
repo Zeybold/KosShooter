@@ -10,47 +10,78 @@ using Microsoft.Xna.Framework.Input;
 
 namespace KosShooter;
 
-public class Player : Entity,IMovement
+public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponent
 {
+    public float HP = 100;
     public static readonly Player Creature = new();
-    private WeaponInventory WeaponInventory = new ();
-    public PlayerSkills PlayerSkill = new ();
     private Player()
     {
         Texture = TextureSource.Player;
-        Position = new Vector2(500, 500);
         Velocity = 150f;
         WeaponInventory.AddWeapon(new Pistol());
         WeaponInventory.AddWeapon(new Shootgun());
     }
 
+    public void SetPosition(Vector2 beginPosition)
+    {
+        Position = beginPosition;
+    }
+
     private void ChangeWeapon()
     {
-        WeaponInventory.ChangeGun(Mouse.GetState().ScrollWheelValue);
-        if (WeaponInventory.CurrentWeapon.TextureGunWithPlayer != Texture)
+        WeaponInventory.ChangeGun(InputDataComponent.MouseWheelBeScrolled());
+        if (WeaponInventory.CurrentWeapon.TextureGunWithPlayer is not null 
+            && WeaponInventory.CurrentWeapon.TextureGunWithPlayer != Texture)
             Texture = WeaponInventory.CurrentWeapon.TextureGunWithPlayer;
-        if (Keyboard.GetState().IsKeyDown(Keys.R))
-            WeaponInventory.CurrentWeapon.Reload();
     }
 
     public override void Update()
     {
-        InputData.FreezingTime();
+        FreezeTime();
         Move();
         RotationPlayer();
+        WeaponInventory.CurrentWeapon.Update();
+        //ReloadGun();
         ChangeWeapon();
         CollisionUpdate();
-        WeaponInventory.CurrentWeapon.ShootCooldown();
+        Shoot();
+    }
+    
+    /*private void ReloadGun()
+    {
+        if (InputDataComponent.KeyBePressed(Keys.R))
+            _weaponInventory.CurrentWeapon();
+    }*/
+    private void FreezeTime()
+    {
+        if (InputDataComponent.KeyBePressed(Keys.T))
+            Configurations.IsFreezeTime = !Configurations.IsFreezeTime;
     }
     private void RotationPlayer()
     {
-        Rotation = InputData.GetAngleRotation();
+        Rotation = InputDataComponent.GetAngleRotation();
     }
     public void Move()
     {
-        var direction = InputData.GetMovement();
+        var direction = InputDataComponent.GetMovement();
         if (direction == Vector2.Zero) return;
         direction.Normalize();
         Position += direction * Velocity * Configurations.IndependentActionsFromFramrate;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Heal(float heal)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Shoot()
+    {
+        if (InputDataComponent.IsLeftMouseClicked())
+            WeaponInventory.CurrentWeapon.Shoot();
     }
 }

@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 namespace KosShooter;
 
-public interface IMovement
+public interface IMovementComponent
 {
     public void Move();
 }

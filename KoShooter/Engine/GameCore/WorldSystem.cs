@@ -12,6 +12,7 @@ public class WorldSystem
 {
     public WorldSystem()
     {
+        Player.Creature.SetPosition(new Vector2(500,500));
         EntityProcessing.Add(Player.Creature);
         var rnd = new Random();
         for (var i = 0; i < 100; i++)
@@ -21,10 +22,10 @@ public class WorldSystem
         Mouse.SetCursor(MouseCursor.FromTexture2D(Configurations.ContentGame.Load<Texture2D>("TextureGames/Cursor/aim"),10,10));
     }
 
-    public void Update(GameTime gameTime)
+    public void Update()
     {
-        InputData.RegistrationKey();
-        EntityProcessing.Update(gameTime);
+        InputDataComponent.RegistrationKey();
+        EntityProcessing.Update();
     }
 
     public void Draw()

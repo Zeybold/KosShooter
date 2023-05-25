@@ -6,29 +6,35 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 namespace KosShooter;
 
-public static class InputData
+public static class InputDataComponent
 {
     private static KeyboardState _currentKey;
     private static KeyboardState _previousKey;
+    private static MouseState _mouseState;
 
     public static void RegistrationKey()
     {
         _previousKey = _currentKey;
         _currentKey = Keyboard.GetState();
+        _mouseState = Mouse.GetState();
     }
 
-    public static void FreezingTime()
+    public static bool IsLeftMouseClicked()
     {
-        if (_currentKey.IsKeyDown(Keys.T) &&
-            _previousKey.IsKeyUp(Keys.T))
-        {
-            Configurations.isFreezeTime = !Configurations.isFreezeTime;
-        }
+        return _mouseState.LeftButton == ButtonState.Pressed;
+    }
+    public static int MouseWheelBeScrolled()
+    {
+        return _mouseState.ScrollWheelValue;
+    }
+    public static bool KeyBePressed(Keys key)
+    {
+        return _currentKey.IsKeyDown(key) && _previousKey.IsKeyUp(key);
     }
 
     public static float GetAngleRotation()
     {
-        var mousePosition = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
+        var mousePosition = new Vector2(_mouseState.X, _mouseState.Y);
         var direction = Vector2.Normalize(mousePosition - Player.Creature.GetPositionEntity());
         return (float)Math.Atan2(direction.Y, direction.X) + (float)Math.PI/2;
     }

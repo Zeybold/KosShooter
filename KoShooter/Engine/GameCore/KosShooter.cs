@@ -37,7 +37,7 @@ public class KosShooter : Game
             Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
         Configurations.UpdateGameTime(gameTime);
-        _worldSystemGame.Update(gameTime);
+        _worldSystemGame.Update();
         base.Update(gameTime);
     }
 

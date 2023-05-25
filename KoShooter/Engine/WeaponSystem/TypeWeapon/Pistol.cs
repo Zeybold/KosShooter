@@ -12,10 +12,10 @@ public class Pistol : Weapon
         Damage = 10f;
         RateOfFire = 15;
         MuzzleVelocity = 1400f;
-        DelayBetweenShots = RateOfFire;
         WeaponSpread = 0.5f;
         WeaponStore = 12;
-        RemainingBullets = WeaponStore;
+        CoolDown = 0;
+        DelayBetweenShoot = 0.25f;
         ReloadVelocity = 30;
         DamageDropWithDistance = 0.7f;
     }

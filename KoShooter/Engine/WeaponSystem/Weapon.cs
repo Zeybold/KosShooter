@@ -11,41 +11,39 @@ using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace KosShooter;
 
-public abstract class Weapon
+public abstract class Weapon : Entity
 {
     public Texture2D TextureGunWithPlayer;
     public float Damage;
     public byte RateOfFire;
     public float MuzzleVelocity;
-    public byte DelayBetweenShots;
+    
+    public float CoolDown;
+    public float DelayBetweenShoot;
+    
     public float WeaponSpread;
     public byte WeaponStore;
-    public byte RemainingBullets;
     public byte ReloadVelocity;
     public float DamageDropWithDistance;
-
-    public virtual void ShootCooldown()
+    public virtual void Shoot()
     {
-        if (Mouse.GetState().LeftButton == ButtonState.Pressed && DelayBetweenShots==0)
-        {
-            if (RemainingBullets==0)
-                Reload();
-            else
-            {
-                DelayBetweenShots = RateOfFire;
-                CreateBullet();
-                RemainingBullets--;      
-            }
-        }
-        if (DelayBetweenShots > 0)
-            DelayBetweenShots--;
+        if (CoolDown>0) return;
+        CoolDown = DelayBetweenShoot;
+        CreateBullet();
     }
-    public virtual void Reload()
+
+    public override void Update()
+    {
+        CoolDown -= Configurations.IndependentActionsFromFramrate;
+    }
+
+    /*public virtual void Reload()
     {
         //ToDo SoundReload
         DelayBetweenShots = ReloadVelocity;
         RemainingBullets = WeaponStore;
-    }
+    }*/
+    
     public abstract void CreateBullet();
     public Texture2D GetTexturePlayerWithGun()
     {

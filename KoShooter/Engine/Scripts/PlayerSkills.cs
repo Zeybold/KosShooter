@@ -1,10 +1,24 @@
 namespace KosShooter;
 
-public class PlayerSkills
+public static class PlayerSkills
 {
-    public float SixSence = 1;
-    public float SharpShooting = 1;
-    public float Luck = 1;
-    public float Speed = 1;
-    public float HP = 100;
+    public static float SixSence;
+    public static float SharpShooting;
+    public static float Luck;
+    public static float Speed;
+    public static float HP;
+
+    public static void ResetCharacter()
+    {
+        SixSence = 1;
+        SharpShooting = 1;
+        Luck = 1;
+        Speed = 1;
+        HP = 1;
+    }
+
+    public static void AppCharacter()
+    {
+        
+    }
 }
