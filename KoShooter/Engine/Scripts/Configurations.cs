@@ -16,6 +16,7 @@ public static class Configurations
     public static readonly Color BaseColor = Color.White;
     public static float IndependentActionsFromFramrate{ get; private set; }
     public static bool IsFreezeTime{ get; set; }
+    public static float Time { get; set; }
 
     public static void ScreenResultInit()
     {
@@ -29,6 +30,7 @@ public static class Configurations
 
     public static void UpdateGameTime(GameTime gameTime)
     {
+        Time = (float)gameTime.ElapsedGameTime.TotalSeconds;
         TimeSystem.Update(gameTime);
         IndependentActionsFromFramrate=TimeSystem.FreezeTime;
     }

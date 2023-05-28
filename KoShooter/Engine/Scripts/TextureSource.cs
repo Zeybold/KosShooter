@@ -11,10 +11,6 @@ static class TextureSource
 {
     public static Texture2D Player = 
         Configurations.ContentGame.Load<Texture2D>("TextureGames/PlayerModel/Kosiak85x80");
-    public static Texture2D PlayerWithPistols = 
-        Configurations.ContentGame.Load<Texture2D>("TextureGames/PlayerModel/Kosiak85x128");
-    public static Texture2D PlayerWithShootgun = 
-        Configurations.ContentGame.Load<Texture2D>("TextureGames/PlayerModel/Kosiak85x128Shootgun");
     public static Texture2D Enemy = 
         Configurations.ContentGame.Load<Texture2D>("TextureGames/Enemies/enemy1");
     public static Texture2D Bullet = 
@@ -27,6 +23,10 @@ static class TextureSource
         Configurations.ContentGame.Load<Texture2D>("TextureGames/UI/TimeBarEmpty256x36");
     public static Texture2D TimeBarFill =
         Configurations.ContentGame.Load<Texture2D>("TextureGames/UI/TimeBarFill256x36");
+    public static Texture2D LevelBarEmpty =
+        Configurations.ContentGame.Load<Texture2D>("TextureGames/UI/LevelBarEmpty256x26");
+    public static Texture2D LevelBarFill =
+        Configurations.ContentGame.Load<Texture2D>("TextureGames/UI/LevelBarFill256x26");
     public static Texture2D Shootgun =
         Configurations.ContentGame.Load<Texture2D>("TextureGames/Weapons/Shootgun");
      public static Texture2D Pistol =

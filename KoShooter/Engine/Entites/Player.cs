@@ -14,12 +14,20 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
 {
     public float MaxHp { get; private set;}
     public float CurrentHp{ get; private set; }
+    public float MaxSpecialAbility{ get; private set;}
+    public float CurrentSpecialAbility{ get; private set;}
+    public float MaxLevelUp{ get; private set;}
+    public float CurrentLevelUp{ get; private set;}
     public static readonly Player Creature = new();
     private Player()
     {
         Texture = TextureSource.Player;
         Velocity = 170f;
         MaxHp = 100;
+        MaxLevelUp = 100;
+        CurrentLevelUp = 0;
+        MaxSpecialAbility = 50;
+        CurrentSpecialAbility = 0;
         CurrentHp = MaxHp;
         WeaponInventory.AddWeapon(new Pistol());
         WeaponInventory.AddWeapon(new Shootgun());
@@ -62,8 +70,27 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
     }
     private void FreezeTime()
     {
-        if (InputDataComponent.KeyBePressed(Keys.T))
+        if (Configurations.IsFreezeTime)
+            if (CurrentSpecialAbility <= 0)
+            {
+                Configurations.IsFreezeTime = !Configurations.IsFreezeTime;
+            }
+            else
+            {
+                CurrentSpecialAbility -= Configurations.Time * 5;
+                if (CurrentSpecialAbility < 0)
+                    CurrentSpecialAbility = 0;
+            }
+        else
+        {
+            CurrentSpecialAbility += Configurations.IndependentActionsFromFramrate*5;
+            if (CurrentSpecialAbility > MaxSpecialAbility)
+                CurrentSpecialAbility = MaxSpecialAbility;
+        }
+        if (InputDataComponent.KeyBePressed(Keys.T) && Math.Abs(MaxSpecialAbility - CurrentSpecialAbility) < 0.001)
+        {
             Configurations.IsFreezeTime = !Configurations.IsFreezeTime;
+        }
     }
     private void RotationPlayer()
     {

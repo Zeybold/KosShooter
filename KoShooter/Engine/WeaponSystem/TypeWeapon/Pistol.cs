@@ -24,8 +24,8 @@ public class Pistol : Weapon
     public override void CreateBullet()
     {
         var position = Player.Creature.Position;
-        position.X -= 70f*(float)Math.Cos(Player.Creature.Rotation+Math.PI/2);
-        position.Y -= 70f*(float)Math.Sin(Player.Creature.Rotation+Math.PI/2);
+        position.X -= 50f*(float)Math.Cos(Player.Creature.Rotation+Math.PI/2);
+        position.Y -= 50f*(float)Math.Sin(Player.Creature.Rotation+Math.PI/2);
         EntityProcessing.Add(new Bullet(position,MuzzleVelocity,WeaponSpread,Damage,DamageDropWithDistance));
     }
 }

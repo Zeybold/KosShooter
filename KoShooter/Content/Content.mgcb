@@ -85,6 +85,30 @@
 /processorParam:TextureFormat=Color
 /build:TextureGames/PlayerModel/KosiakShootgun.png
 
+#begin TextureGames/UI/LevelBarEmpty256x26.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:TextureGames/UI/LevelBarEmpty256x26.png
+
+#begin TextureGames/UI/LevelBarFill256x26.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:TextureGames/UI/LevelBarFill256x26.png
+
 #begin TextureGames/UI/ProgressBarEmpty256x64.png
 /importer:TextureImporter
 /processor:TextureProcessor
