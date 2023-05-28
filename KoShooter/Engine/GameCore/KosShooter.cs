@@ -11,7 +11,7 @@ public class KosShooter : Game
     private WorldSystem _worldSystemGame;
     public KosShooter()
     {
-        Configurations.GraphicsDeviceManager = new GraphicsDeviceManager(this);
+        Configurations.LoadGraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
     }
@@ -25,8 +25,8 @@ public class KosShooter : Game
     protected override void LoadContent()
     {
 
-        Configurations.SpriteBatch = new SpriteBatch(GraphicsDevice);
-        Configurations.ContentGame = Content;
+        Configurations.LoadSpriteBach(GraphicsDevice);
+        Configurations.LoadContent(Content);
         
         _worldSystemGame = new WorldSystem();
     }

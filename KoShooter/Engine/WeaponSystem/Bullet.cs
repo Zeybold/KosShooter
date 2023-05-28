@@ -12,17 +12,19 @@ namespace KosShooter;
 
 public class Bullet : Entity,IMovementComponent
 {
-    private float Damage;
+    private float _damage;
     private readonly float _damageDropWithDistance;
     public Bullet(Vector2 position, float velocity, float weaponSpread, float damage, float damageDropWithDistance)
     {
         Position = position;
         Velocity = velocity;
         Texture = TextureSource.Bullet;
-        Damage = damage;
+        _damage = damage;
         _damageDropWithDistance = damageDropWithDistance;
         var greatRandom = new Random();
-        Rotation = greatRandom.NextFloat(-weaponSpread*PlayerSkills.SharpShooting,weaponSpread*PlayerSkills.SharpShooting)+Player.Creature.GetRotationEntity();
+        Rotation = greatRandom
+            .NextFloat(-weaponSpread*PlayerSkills.SharpShooting,
+                weaponSpread*PlayerSkills.SharpShooting)+Player.Creature.Rotation;
     }
     public override void Update()
     {
@@ -30,12 +32,11 @@ public class Bullet : Entity,IMovementComponent
         LossOfDamage();
         CollisionUpdate();
     }
-
     private void LossOfDamage()
     {
-        Damage -= _damageDropWithDistance*Configurations.IndependentActionsFromFramrate;
-        if (Damage<=0)
-            GameStatus = GameStatus.NotExist;
+        _damage -= _damageDropWithDistance*Configurations.IndependentActionsFromFramrate;
+        if (_damage<=0)
+            Status = GameStatus.NotExist;
     }
     public void Move()
     {

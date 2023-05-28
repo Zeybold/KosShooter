@@ -1,31 +1,34 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
 namespace KosShooter;
 
-public class Pistol : Weapon
+public class M16 : Weapon
 {
-    public Pistol()
+    public M16()
     {
-        Texture = TextureSource.Pistol;
+        Texture = TextureSource.M16;
         Status = GameStatus.InInventory;
         
-        Damage = 20f;
-        DamageDropWithDistance = 10f;
+        Damage = 25f;
+        DamageDropWithDistance = 20f;
+        
         MuzzleVelocity = 1400f;
-        WeaponSpread = 0.25f;
-        WeaponStore = 7;
+        
+        WeaponSpread = 0.3f;
+        WeaponStore = 20;
         CoolDown = 0;
-        DelayBetweenShoot = 0.25f;
+        DelayBetweenShoot = 0.15f;
         CurrentAmmoInStore = WeaponStore;
-        ReloadVelocity = 1;
+        ReloadVelocity = 2.5f;
+
     }
+
     public override void CreateBullet()
     {
         var position = Player.Creature.Position;
-        position.X -= 70f*(float)Math.Cos(Player.Creature.Rotation+Math.PI/2);
-        position.Y -= 70f*(float)Math.Sin(Player.Creature.Rotation+Math.PI/2);
+        position.X -= 90f*(float)Math.Cos(Player.Creature.Rotation+Math.PI/2);
+        position.Y -= 90f*(float)Math.Sin(Player.Creature.Rotation+Math.PI/2);
         EntityProcessing.Add(new Bullet(position,MuzzleVelocity,WeaponSpread,Damage,DamageDropWithDistance));
     }
 }

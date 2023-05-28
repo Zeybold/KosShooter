@@ -9,18 +9,18 @@ namespace KosShooter;
 public abstract class Entity
 {
     protected Texture2D Texture;
-    protected Vector2 Position;
+    public Vector2 Position { get; protected set; }
     protected float Velocity;
-    protected float Rotation;
+    public float Rotation{ get; protected set; }
     private readonly Vector2[] CollisionRectangle = new Vector2[4];
-    protected GameStatus GameStatus = GameStatus.Exist;
+    protected GameStatus Status = GameStatus.Exist;
 
-    private Vector2 Size => new(Texture.Width, Texture.Height);
+    public Vector2 Size => new(Texture.Width, Texture.Height);
 
     public abstract void Update();
     public virtual void Draw()
     {
-        Configurations.SpriteBatch.Draw(Texture, Position, null, Configurations.BaseColor, Rotation, Size/2,1, 0, 0);
+        Configurations.SpriteBatch.Draw(Texture, Position, null, Configurations.BaseColor, Rotation, new Vector2(Texture.Width, Texture.Height)/2,1, 0, 0);
     }
 
     protected void CollisionUpdate()
@@ -30,18 +30,10 @@ public abstract class Entity
         CollisionRectangle[2] = new Vector2(Position.X, Position.Y+Size.Y);
         CollisionRectangle[3] = new Vector2(Position.X+Size.X, Position.Y+Size.Y);
     }
-
-    public Vector2 GetPositionEntity()
-    {
-        return Position;
-    }
-    public float GetRotationEntity()
-    {
-        return Rotation;
-    }
+    
     public bool IsExist()
     {
-        return GameStatus == GameStatus.Exist;
+        return Status == GameStatus.Exist;
     }
 }
     

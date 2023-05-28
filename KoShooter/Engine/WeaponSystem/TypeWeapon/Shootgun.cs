@@ -6,31 +6,29 @@ public class Shootgun : Weapon
 {
     public Shootgun()
     {
-        TextureGunWithPlayer = TextureSource.PlayerWithShootgun;
+        Texture = TextureSource.Shootgun;
+        Status = GameStatus.InInventory;
         Damage = 50f;
-        RateOfFire = 15;
+        DamageDropWithDistance = 30f;
+        
         MuzzleVelocity = 1400f;
-        WeaponSpread = 1f;
-        WeaponStore = 6;
+        
+        WeaponSpread = 0.7f;
+        WeaponStore = 2;
         CoolDown = 0;
-        DelayBetweenShoot = 0.25f;
-        ReloadVelocity = 30;
-        DamageDropWithDistance = 0.5f;
+        DelayBetweenShoot = 0.2f;
+        CurrentAmmoInStore = WeaponStore;
+        ReloadVelocity = 2;
     }
     public override void CreateBullet()
     {
-        var position = Player.Creature.GetPositionEntity();
-        position.X -= 54f*(float)Math.Cos(Player.Creature.GetRotationEntity()+Math.PI/2-0.5f);
-        position.Y -= 54f*(float)Math.Sin(Player.Creature.GetRotationEntity()+Math.PI/2-0.5f);
-        EntityProcessing.Add(new Bullet(position,MuzzleVelocity,WeaponSpread,Damage,DamageDropWithDistance));
-        position = Player.Creature.GetPositionEntity();
-        position.X -= 54f*(float)Math.Cos(Player.Creature.GetRotationEntity()+Math.PI/2+0.5f);
-        position.Y -= 54f*(float)Math.Sin(Player.Creature.GetRotationEntity()+Math.PI/2+0.5f);
-        EntityProcessing.Add(new Bullet(position,MuzzleVelocity,WeaponSpread,Damage,DamageDropWithDistance));
-        position = Player.Creature.GetPositionEntity();
-        position.X -= 54f*(float)Math.Cos(Player.Creature.GetRotationEntity()+Math.PI/2);
-        position.Y -= 54f*(float)Math.Sin(Player.Creature.GetRotationEntity()+Math.PI/2);
-        EntityProcessing.Add(new Bullet(position,MuzzleVelocity,WeaponSpread,Damage,DamageDropWithDistance));
+        for (var i = 0; i < 5; i++)
+        {
+            var position = Player.Creature.Position;
+            position.X -= 70f*(float)Math.Cos(Player.Creature.Rotation+Math.PI/2);
+            position.Y -= 70f*(float)Math.Sin(Player.Creature.Rotation+Math.PI/2);
+            EntityProcessing.Add(new Bullet(position,MuzzleVelocity,WeaponSpread,Damage,DamageDropWithDistance));
+        }
     }
     
 }

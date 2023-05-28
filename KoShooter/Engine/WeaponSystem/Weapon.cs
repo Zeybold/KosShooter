@@ -13,40 +13,49 @@ namespace KosShooter;
 
 public abstract class Weapon : Entity
 {
-    public Texture2D TextureGunWithPlayer;
-    public float Damage;
-    public byte RateOfFire;
-    public float MuzzleVelocity;
+    protected float Damage;
+    protected float DamageDropWithDistance;
     
-    public float CoolDown;
-    public float DelayBetweenShoot;
-    
-    public float WeaponSpread;
-    public byte WeaponStore;
-    public byte ReloadVelocity;
-    public float DamageDropWithDistance;
+    protected float ReloadVelocity;
+    protected float MuzzleVelocity;
+    protected float CoolDown;
+    protected float DelayBetweenShoot;
+    protected float WeaponSpread;
+    protected byte WeaponStore;
+    protected byte CurrentAmmoInStore;
     public virtual void Shoot()
     {
         if (CoolDown>0) return;
+        if (CurrentAmmoInStore == 0)
+        {
+            Reload();
+            return;
+        }
         CoolDown = DelayBetweenShoot;
+        CurrentAmmoInStore--;
         CreateBullet();
     }
 
     public override void Update()
     {
         CoolDown -= Configurations.IndependentActionsFromFramrate;
+        if (Status == GameStatus.InInventory)
+        {
+            Position = Player.Creature.Position;
+            Rotation = Player.Creature.Rotation-(float)Math.PI/2;
+        }
     }
 
-    /*public virtual void Reload()
+    public void ChangeStatus()
+    {
+        Status = GameStatus.InInventory;
+    }
+    public virtual void Reload()
     {
         //ToDo SoundReload
-        DelayBetweenShots = ReloadVelocity;
-        RemainingBullets = WeaponStore;
-    }*/
+        CoolDown = ReloadVelocity;
+        CurrentAmmoInStore = WeaponStore;
+    }
     
     public abstract void CreateBullet();
-    public Texture2D GetTexturePlayerWithGun()
-    {
-        return TextureGunWithPlayer;
-    }
 }

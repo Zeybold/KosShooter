@@ -10,26 +10,27 @@ namespace KosShooter;
 
 public class Enemy : Entity,IMovementComponent,IHealthComponent
 {
-    public float HP; 
+    public float MaxHP{ get; private set; }
+    public float CurrentHP{ get; private set; }
     public Enemy(Vector2 position)
     {
         Texture = TextureSource.Enemy;
         Position = position;
         Velocity = 150;
-        HP = 100;
+        CurrentHP = 100;
     }
     public override void Update()
     {
         Move();
         FindPlayer();
         CollisionUpdate();
-        if (HP<=0)
-            GameStatus = GameStatus.NotExist;
+        if (CurrentHP<=0)
+            Status = GameStatus.NotExist;
     }
     
     private void FindPlayer()
     {
-        var mousePosition = Player.Creature.GetPositionEntity();
+        var mousePosition = Player.Creature.Position;
         var direction = Vector2.Normalize(mousePosition - Position);
         var angle = (float)Math.Atan2(direction.Y, direction.X);
         Rotation = angle+(float)Math.PI/2;
@@ -37,7 +38,7 @@ public class Enemy : Entity,IMovementComponent,IHealthComponent
 
     public void Move()
     {
-        var positionPlayer = Player.Creature.GetPositionEntity();
+        var positionPlayer = Player.Creature.Position;
         var direction = positionPlayer - Position;
         if (!(direction.Length() > 4)) return;
         direction.Normalize();
@@ -46,11 +47,15 @@ public class Enemy : Entity,IMovementComponent,IHealthComponent
 
     public void TakeDamage(float damage)
     {
-        throw new NotImplementedException();
+        CurrentHP -= damage;
+        if (CurrentHP < 0)
+            CurrentHP = 0;
     }
 
     public void Heal(float heal)
     {
-        throw new NotImplementedException();
+        CurrentHP += heal;
+        if (CurrentHP > MaxHP)
+            CurrentHP = MaxHP;
     }
 }

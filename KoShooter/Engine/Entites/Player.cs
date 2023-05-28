@@ -12,14 +12,18 @@ namespace KosShooter;
 
 public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponent
 {
-    public float HP = 100;
+    public float MaxHp { get; private set;}
+    public float CurrentHp{ get; private set; }
     public static readonly Player Creature = new();
     private Player()
     {
         Texture = TextureSource.Player;
-        Velocity = 150f;
+        Velocity = 170f;
+        MaxHp = 100;
+        CurrentHp = MaxHp;
         WeaponInventory.AddWeapon(new Pistol());
         WeaponInventory.AddWeapon(new Shootgun());
+        WeaponInventory.AddWeapon(new M16());
     }
 
     public void SetPosition(Vector2 beginPosition)
@@ -30,28 +34,32 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
     private void ChangeWeapon()
     {
         WeaponInventory.ChangeGun(InputDataComponent.MouseWheelBeScrolled());
-        if (WeaponInventory.CurrentWeapon.TextureGunWithPlayer is not null 
-            && WeaponInventory.CurrentWeapon.TextureGunWithPlayer != Texture)
-            Texture = WeaponInventory.CurrentWeapon.TextureGunWithPlayer;
     }
 
     public override void Update()
     {
         FreezeTime();
         Move();
+        WeaponLogistic();
         RotationPlayer();
-        WeaponInventory.CurrentWeapon.Update();
-        //ReloadGun();
-        ChangeWeapon();
         CollisionUpdate();
+        if (InputDataComponent.KeyBePressed(Keys.H))
+            TakeDamage(10);
+        if (InputDataComponent.KeyBePressed(Keys.F))
+            Heal(10);
+    }
+    private void WeaponLogistic()
+    {
+        WeaponInventory.CurrentWeapon.Update();
+        ReloadGun();
+        ChangeWeapon();
         Shoot();
     }
-    
-    /*private void ReloadGun()
+    private void ReloadGun()
     {
-        if (InputDataComponent.KeyBePressed(Keys.R))
-            _weaponInventory.CurrentWeapon();
-    }*/
+       if (InputDataComponent.KeyBePressed(Keys.R))
+            WeaponInventory.CurrentWeapon.Reload();
+    }
     private void FreezeTime()
     {
         if (InputDataComponent.KeyBePressed(Keys.T))
@@ -71,17 +79,27 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
 
     public void TakeDamage(float damage)
     {
-        throw new NotImplementedException();
+        CurrentHp -= damage;
+        if (CurrentHp < 0)
+            CurrentHp = 0;
     }
 
     public void Heal(float heal)
     {
-        throw new NotImplementedException();
+        CurrentHp += heal;
+        if (CurrentHp > MaxHp)
+            CurrentHp = MaxHp;
     }
 
     public void Shoot()
     {
         if (InputDataComponent.IsLeftMouseClicked())
             WeaponInventory.CurrentWeapon.Shoot();
+    }
+
+    public override void Draw()
+    {
+        base.Draw();
+        WeaponInventory.CurrentWeapon.Draw();
     }
 }

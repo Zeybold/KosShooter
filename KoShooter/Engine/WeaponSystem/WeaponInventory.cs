@@ -16,7 +16,7 @@ public static class WeaponInventory
     private static Dictionary<Weapon,byte> WeaponToNumber = new ();
     private static int _previousScrollValue;
     private static byte _lengthInventory;
-    public static Weapon CurrentWeapon;
+    public static Weapon CurrentWeapon { get; private set; }
     public static void AddWeapon(Weapon weapon)
     {
         if (WeaponToNumber.ContainsKey(weapon)) return;

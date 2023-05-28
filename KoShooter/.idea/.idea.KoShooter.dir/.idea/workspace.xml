@@ -8,26 +8,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f41e3c5-26b5-4cc4-9c32-2f09b902d519" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Engine/Components/GameStatus.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/Components/IHealthComponent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/Components/IWeaponComponent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/GameCore/TimeSystem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/WeaponSystem/TypeWeapon/M16.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/shelf/Uncommitted_changes_before_rebase__Changes_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/shelf/Uncommitted_changes_before_rebase__Changes_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/shelf/Uncommitted_changes_before_rebase__Changes_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/shelf/Uncommitted_changes_before_rebase__Changes_4.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TextureGames/Weapons/silver-bullet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/TextureGames/Weapons/weapon1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Components/GameStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Components/GameStatus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Components/InputDataComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Components/InputDataComponent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Entites/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/Entity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Entites/EntityProcessing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/GameCore/EntityProcessing.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Entites/InputData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Components/InputDataComponent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Entites/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Entites/TypeEnemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/TypeEnemy/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/GameCore/KosShooter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/GameCore/KosShooter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/GameCore/TimeSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/GameCore/TimeSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/GameCore/WorldSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/GameCore/WorldSystem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Scripts/Configurations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Scripts/Configurations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Scripts/IMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Components/IMovementComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Scripts/PlayerSkills.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Scripts/PlayerSkills.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Weapon/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/WeaponSystem/Bullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Weapon/Pistol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/WeaponSystem/TypeWeapon/Pistol.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Weapon/Shootgun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/WeaponSystem/TypeWeapon/Shootgun.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Weapon/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/WeaponSystem/Weapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Weapon/WeaponInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/WeaponSystem/WeaponInventory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/WorldSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/GameCore/WorldSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Scripts/TextureSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Scripts/TextureSource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/WeaponSystem/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/WeaponSystem/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/WeaponSystem/TypeWeapon/Pistol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/WeaponSystem/TypeWeapon/Pistol.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/WeaponSystem/TypeWeapon/Shootgun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/WeaponSystem/TypeWeapon/Shootgun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/WeaponSystem/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/WeaponSystem/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/WeaponSystem/WeaponInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/WeaponSystem/WeaponInventory.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +53,7 @@
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectId" id="2P3uVo37904cHELxHVv40VExJoW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -135,6 +138,7 @@
       <workItem from="1684749800171" duration="19265000" />
       <workItem from="1684829874129" duration="5397000" />
       <workItem from="1685002711043" duration="12119000" />
+      <workItem from="1685294308404" duration="3027000" />
     </task>
     <task id="LOCAL-00001" summary="ItJustWork Code.Add Wasd controller and Mouse Rotation">
       <created>1683135075077</created>

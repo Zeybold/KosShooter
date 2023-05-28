@@ -3,5 +3,7 @@ namespace KosShooter;
 public enum GameStatus
 {
     Exist,
-    NotExist
+    NotExist,
+    OnFloor,
+    InInventory
 }
