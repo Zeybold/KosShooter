@@ -21,11 +21,17 @@ public class Enemy : Entity,IMovementComponent,IHealthComponent
     }
     public override void Update()
     {
+        base.Update();
         Move();
         FindPlayer();
-        CollisionUpdate();
-        if (CurrentHP<=0)
-            Status = GameStatus.NotExist;
+        CheckStatus();
+    }
+
+    private void CheckStatus()
+    {
+        if (!(CurrentHP <= 0)) return;
+        Status = GameStatus.NotExist;
+        Player.Creature.CountKilling++;
     }
     
     private void FindPlayer()

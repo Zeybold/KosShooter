@@ -6,10 +6,11 @@ namespace KosShooter;
 
 public class Pistol : Weapon
 {
-    public Pistol()
+    public Pistol(Vector2 position)
     {
+        Position = position;
         Texture = TextureSource.Pistol;
-        Status = GameStatus.InInventory;
+        Status = GameStatus.OnFloor;
         
         Damage = 20f;
         DamageDropWithDistance = 10f;

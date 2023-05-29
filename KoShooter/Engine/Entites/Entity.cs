@@ -17,10 +17,15 @@ public abstract class Entity
 
     public Vector2 Size => new(Texture.Width, Texture.Height);
 
-    public abstract void Update();
+    public virtual void Update()
+    {
+        CollisionUpdate();
+    }
     public virtual void Draw()
     {
-        Configurations.SpriteBatch.Draw(Texture, Position, null, Configurations.BaseColor, Rotation, new Vector2(Texture.Width, Texture.Height)/2,1, 0, 0);
+        Configurations.SpriteBatch.Draw(Texture, 
+            Position, null, Configurations.BaseColor, 
+            Rotation, new Vector2(Texture.Width, Texture.Height)/2,1, 0, 0);
     }
 
     protected void CollisionUpdate()
@@ -33,7 +38,7 @@ public abstract class Entity
     
     public bool IsExist()
     {
-        return Status == GameStatus.Exist;
+        return Status is GameStatus.Exist or GameStatus.OnFloor or GameStatus.InInventory;
     }
 }
     

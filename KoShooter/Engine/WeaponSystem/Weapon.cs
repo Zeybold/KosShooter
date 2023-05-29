@@ -38,6 +38,7 @@ public abstract class Weapon : Entity
 
     public override void Update()
     {
+        base.Update();
         CoolDown -= Configurations.IndependentActionsFromFramrate;
         if (Status == GameStatus.InInventory)
         {

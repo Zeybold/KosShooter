@@ -12,12 +12,15 @@ namespace KosShooter;
 
 public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponent
 {
+    public ulong CountKilling { get; set; }
+    
+    private ulong _previousCountKilling;
     public float MaxHp { get; private set;}
     public float CurrentHp{ get; private set; }
     public float MaxSpecialAbility{ get; private set;}
     public float CurrentSpecialAbility{ get; private set;}
-    public float MaxLevelUp{ get; private set;}
-    public float CurrentLevelUp{ get; private set;}
+    public int MaxLevelUp{ get; private set;}
+    public int CurrentLevelUp{ get; private set;}
     public static readonly Player Creature = new();
     private Player()
     {
@@ -29,9 +32,9 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
         MaxSpecialAbility = 50;
         CurrentSpecialAbility = 0;
         CurrentHp = MaxHp;
-        WeaponInventory.AddWeapon(new Pistol());
-        WeaponInventory.AddWeapon(new Shootgun());
-        WeaponInventory.AddWeapon(new M16());
+        CountKilling = 1;
+        _previousCountKilling = 0;
+
     }
 
     public void SetPosition(Vector2 beginPosition)
@@ -39,36 +42,43 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
         Position = beginPosition;
     }
 
-    private void ChangeWeapon()
-    {
-        WeaponInventory.ChangeGun(InputDataComponent.MouseWheelBeScrolled());
-    }
-
     public override void Update()
     {
-        FreezeTime();
+        base.Update();
+        CheckLevel();
+        SpecialAbility();
         Move();
         WeaponLogistic();
         RotationPlayer();
-        CollisionUpdate();
-        if (InputDataComponent.KeyBePressed(Keys.H))
-            TakeDamage(10);
-        if (InputDataComponent.KeyBePressed(Keys.F))
-            Heal(10);
     }
-    private void WeaponLogistic()
+    private void RotationPlayer()
     {
-        WeaponInventory.CurrentWeapon.Update();
-        ReloadGun();
-        ChangeWeapon();
-        Shoot();
+        Rotation = InputDataComponent.GetAngleRotation();
     }
-    private void ReloadGun()
+    public void Move()
     {
-       if (InputDataComponent.KeyBePressed(Keys.R))
-            WeaponInventory.CurrentWeapon.Reload();
+        var direction = InputDataComponent.GetMovement();
+        if (direction == Vector2.Zero) return;
+        direction.Normalize();
+        Position += direction * Velocity * Configurations.IndependentActionsFromFramrate;
     }
-    private void FreezeTime()
+
+    private void CheckLevel()
+    {
+        if (CurrentLevelUp >= MaxLevelUp)
+        {
+            PlayerSkills.LevelUp();
+            CurrentLevelUp = 0;
+        }
+
+        if (CountKilling > _previousCountKilling)
+        {
+            _previousCountKilling = CountKilling;
+            CurrentLevelUp++;
+        }
+    }
+
+    private void SpecialAbility()
     {
         if (Configurations.IsFreezeTime)
             if (CurrentSpecialAbility <= 0)
@@ -92,18 +102,29 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
             Configurations.IsFreezeTime = !Configurations.IsFreezeTime;
         }
     }
-    private void RotationPlayer()
+    private void WeaponLogistic()
     {
-        Rotation = InputDataComponent.GetAngleRotation();
+        if (WeaponInventory.CurrentWeapon is null) return;
+        WeaponInventory.CurrentWeapon.Update();
+        ReloadGun();
+        ChangeWeapon();
+        Shoot();
     }
-    public void Move()
+    public void Shoot()
     {
-        var direction = InputDataComponent.GetMovement();
-        if (direction == Vector2.Zero) return;
-        direction.Normalize();
-        Position += direction * Velocity * Configurations.IndependentActionsFromFramrate;
+        if (InputDataComponent.IsLeftMouseClicked() && WeaponInventory.CurrentWeapon is not null)
+            WeaponInventory.CurrentWeapon.Shoot();
     }
 
+    private void ChangeWeapon()
+    {
+        WeaponInventory.ChangeGun(InputDataComponent.MouseWheelBeScrolled());
+    }
+    private void ReloadGun()
+    {
+       if (InputDataComponent.KeyBePressed(Keys.R) && WeaponInventory.CurrentWeapon is not null)
+            WeaponInventory.CurrentWeapon.Reload();
+    }
     public void TakeDamage(float damage)
     {
         CurrentHp -= damage;
@@ -118,15 +139,10 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
             CurrentHp = MaxHp;
     }
 
-    public void Shoot()
-    {
-        if (InputDataComponent.IsLeftMouseClicked())
-            WeaponInventory.CurrentWeapon.Shoot();
-    }
-
     public override void Draw()
     {
         base.Draw();
-        WeaponInventory.CurrentWeapon.Draw();
+        if (WeaponInventory.CurrentWeapon is not null)
+            WeaponInventory.CurrentWeapon.Draw();
     }
 }

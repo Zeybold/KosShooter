@@ -1,13 +1,15 @@
 using System;
+using Microsoft.Xna.Framework;
 
 namespace KosShooter;
 
 public class Shootgun : Weapon
 {
-    public Shootgun()
+    public Shootgun(Vector2 position)
     {
+        Position = position;
         Texture = TextureSource.Shootgun;
-        Status = GameStatus.InInventory;
+        Status = GameStatus.OnFloor;
         Damage = 50f;
         DamageDropWithDistance = 30f;
         

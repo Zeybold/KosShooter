@@ -1,14 +1,16 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+
 namespace KosShooter;
 
 public class M16 : Weapon
 {
-    public M16()
+    public M16(Vector2 position)
     {
+        Position = position;
         Texture = TextureSource.M16;
-        Status = GameStatus.InInventory;
+        Status = GameStatus.OnFloor;
         
         Damage = 25f;
         DamageDropWithDistance = 20f;

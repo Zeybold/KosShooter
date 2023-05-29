@@ -17,8 +17,12 @@ public static class PlayerSkills
         HP = 1;
     }
 
-    public static void AppCharacter()
+    public static void LevelUp()
     {
-        
+        SixSence*=0.1f;
+        SharpShooting/=0.1f;
+        Luck*=0.1f;
+        Speed*=0.1f;
+        HP*=0.1f;
     }
 }
