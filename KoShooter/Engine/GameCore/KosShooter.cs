@@ -39,15 +39,14 @@ public class KosShooter : Game
         Configurations.UpdateGameTime(gameTime);
         _worldSystemGame.Update();
         base.Update(gameTime);
+        Configurations.ScreenResultInit();
     }
 
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
         
-        Configurations.SpriteBatch.Begin();
         _worldSystemGame.Draw();
-        Configurations.SpriteBatch.End();
         base.Draw(gameTime);
     }
 }

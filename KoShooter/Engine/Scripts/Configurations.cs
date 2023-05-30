@@ -16,15 +16,22 @@ public static class Configurations
     public static readonly Color BaseColor = Color.White;
     public static float IndependentActionsFromFramrate{ get; private set; }
     public static bool IsFreezeTime{ get; set; }
-    public static float Time { get; set; }
+    public static float Time { get; private set; }
+    public static Point MapSize { get; private set; }
+    public static Point TitleSide { get; private set; }
 
+    public static void MapBounds(Point mapSize, Point titleSide)
+    {
+        MapSize = mapSize;
+        TitleSide = titleSide;
+    }
     public static void ScreenResultInit()
     {
-        GraphicsDeviceManager.PreferredBackBufferWidth = GraphicsDeviceManager.GraphicsDevice.DisplayMode.Width;
-        ScreenWidth = GraphicsDeviceManager.PreferredBackBufferWidth;
-        GraphicsDeviceManager.PreferredBackBufferHeight = GraphicsDeviceManager.GraphicsDevice.DisplayMode.Height;
-        ScreenHeight = GraphicsDeviceManager.PreferredBackBufferHeight;
+        GraphicsDeviceManager.PreferredBackBufferWidth = 1024;
+        GraphicsDeviceManager.PreferredBackBufferHeight = 768;
         GraphicsDeviceManager.ApplyChanges();
+        ScreenWidth = GraphicsDeviceManager.PreferredBackBufferWidth;
+        ScreenHeight = GraphicsDeviceManager.PreferredBackBufferHeight;
         GraphicsDeviceManager.IsFullScreen = false;
     }
 

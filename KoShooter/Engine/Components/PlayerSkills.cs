@@ -2,11 +2,11 @@ namespace KosShooter;
 
 public static class PlayerSkills
 {
-    public static float SixSence;
-    public static float SharpShooting;
-    public static float Luck;
-    public static float Speed;
-    public static float HP;
+    public static float SixSence { get; private set; }
+    public static float SharpShooting{ get; private set; }
+    public static float Luck{ get; private set; }
+    public static float Speed{ get; private set; }
+    public static float HP{ get; private set; }
 
     public static void ResetCharacter()
     {

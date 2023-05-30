@@ -6,11 +6,10 @@ namespace KosShooter;
 
 public class Pistol : Weapon
 {
-    public Pistol(Vector2 position)
+    public Pistol()
     {
-        Position = position;
         Texture = TextureSource.Pistol;
-        Status = GameStatus.OnFloor;
+        Status = GameStatus.InInventory;
         
         Damage = 20f;
         DamageDropWithDistance = 10f;
@@ -27,6 +26,7 @@ public class Pistol : Weapon
         var position = Player.Creature.Position;
         position.X -= 50f*(float)Math.Cos(Player.Creature.Rotation+Math.PI/2);
         position.Y -= 50f*(float)Math.Sin(Player.Creature.Rotation+Math.PI/2);
-        EntityProcessing.Add(new Bullet(position,MuzzleVelocity,WeaponSpread,Damage,DamageDropWithDistance));
+        var b = new Bullet(position, MuzzleVelocity, WeaponSpread, Damage, DamageDropWithDistance);
+        EntityProcessing.Add(b);
     }
 }

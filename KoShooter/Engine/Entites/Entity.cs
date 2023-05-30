@@ -14,7 +14,7 @@ public abstract class Entity
     public float Rotation{ get; protected set; }
     private readonly Vector2[] CollisionRectangle = new Vector2[4];
     protected GameStatus Status = GameStatus.Exist;
-
+    protected Vector2 Origin => new(Texture.Width/2, Texture.Height/2);
     public Vector2 Size => new(Texture.Width, Texture.Height);
 
     public virtual void Update()
@@ -25,7 +25,7 @@ public abstract class Entity
     {
         Configurations.SpriteBatch.Draw(Texture, 
             Position, null, Configurations.BaseColor, 
-            Rotation, new Vector2(Texture.Width, Texture.Height)/2,1, 0, 0);
+            Rotation, Origin,1, 0, 0);
     }
 
     protected void CollisionUpdate()

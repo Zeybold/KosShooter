@@ -1,3 +1,5 @@
+using SharpDX;
+
 namespace KosShooter;
 
 public interface IHealthComponent

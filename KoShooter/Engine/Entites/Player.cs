@@ -15,8 +15,8 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
     public ulong CountKilling { get; set; }
     
     private ulong _previousCountKilling;
-    public float MaxHp { get; private set;}
-    public float CurrentHp{ get; private set; }
+    public float MaxHp { get; protected set;}
+    public float CurrentHp{ get; protected set; }
     public float MaxSpecialAbility{ get; private set;}
     public float CurrentSpecialAbility{ get; private set;}
     public int MaxLevelUp{ get; private set;}
@@ -34,7 +34,7 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
         CurrentHp = MaxHp;
         CountKilling = 1;
         _previousCountKilling = 0;
-
+        WeaponInventory.AddWeapon(new Pistol());
     }
 
     public void SetPosition(Vector2 beginPosition)
@@ -55,6 +55,7 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
     {
         Rotation = InputDataComponent.GetAngleRotation();
     }
+
     public void Move()
     {
         var direction = InputDataComponent.GetMovement();
@@ -104,7 +105,6 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
     }
     private void WeaponLogistic()
     {
-        if (WeaponInventory.CurrentWeapon is null) return;
         WeaponInventory.CurrentWeapon.Update();
         ReloadGun();
         ChangeWeapon();
@@ -112,7 +112,7 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
     }
     public void Shoot()
     {
-        if (InputDataComponent.IsLeftMouseClicked() && WeaponInventory.CurrentWeapon is not null)
+        if (InputDataComponent.IsLeftMouseClicked())
             WeaponInventory.CurrentWeapon.Shoot();
     }
 
@@ -122,7 +122,7 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
     }
     private void ReloadGun()
     {
-       if (InputDataComponent.KeyBePressed(Keys.R) && WeaponInventory.CurrentWeapon is not null)
+       if (InputDataComponent.KeyBePressed(Keys.R))
             WeaponInventory.CurrentWeapon.Reload();
     }
     public void TakeDamage(float damage)
@@ -142,7 +142,6 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
     public override void Draw()
     {
         base.Draw();
-        if (WeaponInventory.CurrentWeapon is not null)
-            WeaponInventory.CurrentWeapon.Draw();
+        WeaponInventory.CurrentWeapon.Draw();
     }
 }

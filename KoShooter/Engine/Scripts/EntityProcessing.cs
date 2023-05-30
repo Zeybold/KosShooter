@@ -35,7 +35,7 @@ public static class EntityProcessing
     public static void Draw()
     {
         foreach (var entity in _entities)
-                entity.Draw();
+            entity.Draw();
     }
 
     static bool IsCollise(Vector2[] a , Vector2[] b)
