@@ -12,7 +12,7 @@ public class ProgressBar
     private readonly Texture2D _emptyBarTexture;
     private readonly Texture2D _fillBarTexture;
     private readonly Vector2 _positionOnScreen;
-    private readonly float _maxValueBar;
+    private float _maxValueBar;
     private float _currentValue;
     private Rectangle _part;
     private float _targetValue;
@@ -61,6 +61,11 @@ public class ProgressBar
         _animationPart.X = x;
         _animationPart.Width = (int)(Math.Abs(_currentValue - _targetValue) / _maxValueBar * _fillBarTexture.Width);
         _animationPosition.X = _positionOnScreen.X + x;
+    }
+
+    public void LevelUp(float maxValue)
+    {
+        _maxValueBar = maxValue;
     }
 
     public void Draw()

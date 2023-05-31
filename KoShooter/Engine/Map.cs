@@ -18,13 +18,9 @@ public class Map
     {
         _tiles = new Title[_mapTileSize.X, _mapTileSize.Y];
 
-        List<Texture2D> textures = new(5);
-        for (var i = 1; i < 5; i++)
-        {
-            textures.Add( Configurations.ContentGame.Load<Texture2D>("TextureGames/Map/tile1"));
-        }
-
-        TileSize = new(textures[0].Width, textures[0].Height);
+        TextureSource.FillMap();
+        
+        TileSize = new(TextureSource.MapTextures[0].Width, TextureSource.MapTextures[0].Height);
         MapSize = new(TileSize.X * _mapTileSize.X, TileSize.Y * _mapTileSize.Y);
 
         Random random = new();
@@ -33,8 +29,8 @@ public class Map
         {
             for (int x = 0; x < _mapTileSize.X; x++)
             {
-                int r = random.Next(0, textures.Count);
-                _tiles[x, y] = new(textures[r], new(x * TileSize.X, y * TileSize.Y));
+                int r = random.Next(0, TextureSource.MapTextures.Count);
+                _tiles[x, y] = new(TextureSource.MapTextures[r], new(x * TileSize.X, y * TileSize.Y));
             }
         }
     }

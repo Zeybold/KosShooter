@@ -34,4 +34,13 @@ public static class TextureSource
         Configurations.ContentGame.Load<Texture2D>("TextureGames/Weapons/Pistol");
     public static readonly Texture2D M16 =
         Configurations.ContentGame.Load<Texture2D>("TextureGames/Weapons/M16");
+    public static readonly List<Texture2D> MapTextures = new(5);
+
+    public static void FillMap()
+    {
+        for (var i = 1; i < 5; i++)
+        {
+            MapTextures.Add( Configurations.ContentGame.Load<Texture2D>("TextureGames/Map/Title"+i));
+        }
+    }
 }

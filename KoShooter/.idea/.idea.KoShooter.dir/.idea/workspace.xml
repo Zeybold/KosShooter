@@ -8,24 +8,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f41e3c5-26b5-4cc4-9c32-2f09b902d519" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Engine/Entites/Items/Item.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/Qtree.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KoShooter.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Content.mgcb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Components/GameStatus.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Components/IHealthComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Components/IHealthComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Components/IMovementComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Components/IMovementComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Components/InputDataComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Components/InputDataComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Components/PlayerSkills.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Components/PlayerSkills.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Entites/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/Entity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Entites/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/GameCore/EntityProcessing.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/GameCore/KosShooter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/GameCore/KosShooter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/GameCore/TimeSystem.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Entites/TypeEnemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/TypeEnemy/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/GameCore/WorldSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/GameCore/WorldSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Map.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Map.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Scripts/Configurations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Scripts/Configurations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Scripts/PlayerSkills.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Scripts/TextureSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Scripts/TextureSource.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/UI/PlayerInterface.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/UI/PlayerInterface.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/WeaponSystem/TypeWeapon/M16.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/WeaponSystem/TypeWeapon/M16.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/WeaponSystem/TypeWeapon/Pistol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/WeaponSystem/TypeWeapon/Pistol.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/WeaponSystem/TypeWeapon/Shootgun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/WeaponSystem/TypeWeapon/Shootgun.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KoShooter.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/KoShooter.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/UI/ProgressBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/UI/ProgressBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/WeaponSystem/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/WeaponSystem/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/WeaponSystem/TypeWeapon/M16.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/WeaponSystem/TypeWeapon/M16.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/WeaponSystem/TypeWeapon/Pistol.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/WeaponSystem/TypeWeapon/Pistol.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/WeaponSystem/TypeWeapon/Shootgun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/WeaponSystem/TypeWeapon/Shootgun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/WeaponSystem/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/WeaponSystem/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/WeaponSystem/WeaponInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Entites/WeaponSystem/WeaponInventory.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +46,17 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b3f3e3d470644786bce7a05008b0d88fed800/a7/bcb5d617/KeyboardState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b3f3e3d470644786bce7a05008b0d88fed800/cd/106557b0/Vector2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b3f3e3d470644786bce7a05008b0d88fed800/ff/c298771b/Keys.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/ImperiumKosiakov/KosShooter1/KoShooter/Engine/Entites/TypeEnemy/Enemy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/ImperiumKosiakov/KosShooter1/KoShooter/Engine/Components/IHealthComponent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/ImperiumKosiakov/KosShooter1/KoShooter/Engine/Entites/Entity.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/ImperiumKosiakov/KosShooter1/KoShooter/Engine/Entites/Player.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/ImperiumKosiakov/KosShooter1/KoShooter/Engine/GameCore/KosShooter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/ImperiumKosiakov/KosShooter1/KoShooter/Engine/GameCore/WorldSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/ImperiumKosiakov/KosShooter1/KoShooter/Engine/Scripts/Configurations.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/ImperiumKosiakov/KosShooter1/KoShooter/Engine/Scripts/TextureSource.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/ImperiumKosiakov/KosShooter1/KoShooter/Engine/UI/PlayerInterface.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/ImperiumKosiakov/KosShooter1/KoShooter/Engine/WeaponSystem/TypeWeapon/M16.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/ImperiumKosiakov/KosShooter1/KoShooter/Engine/WeaponSystem/TypeWeapon/Pistol.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/ImperiumKosiakov/KosShooter1/KoShooter/Engine/WeaponSystem/TypeWeapon/Shootgun.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -140,7 +154,8 @@
       <workItem from="1685374447105" duration="4748000" />
       <workItem from="1685419691078" duration="2777000" />
       <workItem from="1685452091996" duration="10937000" />
-      <workItem from="1685463252695" duration="1061000" />
+      <workItem from="1685463252695" duration="10192000" />
+      <workItem from="1685517469678" duration="14815000" />
     </task>
     <task id="LOCAL-00001" summary="ItJustWork Code.Add Wasd controller and Mouse Rotation">
       <created>1683135075077</created>
@@ -268,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685356047641</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="I broke all and try to fix this">
+      <created>1685464504910</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1685464504910</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,6 +328,7 @@
     <MESSAGE value="Add Health Bar, new Gun." />
     <MESSAGE value="Add Level Bar and Do Special Ability(TimeFreezing)" />
     <MESSAGE value="Add Level Bar and Level Up for Player Skills" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Level Bar and Level Up for Player Skills" />
+    <MESSAGE value="I broke all and try to fix this" />
+    <option name="LAST_COMMIT_MESSAGE" value="I broke all and try to fix this" />
   </component>
 </project>

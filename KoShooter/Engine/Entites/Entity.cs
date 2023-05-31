@@ -23,9 +23,16 @@ public abstract class Entity
     }
     public virtual void Draw()
     {
-        Configurations.SpriteBatch.Draw(Texture, 
-            Position, null, Configurations.BaseColor, 
-            Rotation, Origin,1, 0, 0);
+        Configurations.SpriteBatch.Draw(Texture,
+            Position,
+            null,
+            Color.White,
+            Rotation,
+            Origin,
+            Vector2.One,
+            SpriteEffects.None,
+            0f
+        );
     }
 
     protected void CollisionUpdate()

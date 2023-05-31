@@ -43,7 +43,24 @@ public abstract class Weapon : Entity
         if (Status == GameStatus.InInventory)
         {
             Position = Player.Creature.Position;
-            Rotation = Player.Creature.Rotation-(float)Math.PI/2;
+            RotationWeapon();
+        }
+    }
+    private void RotationWeapon()
+    {
+        var targetAngle = Player.Creature.Rotation-(float)Math.PI/2;
+        var rotationDifference = MathHelper.WrapAngle(targetAngle - Rotation);
+
+        var maxRotation = Configurations.IndependentActionsFromFramrate * Player.Creature.RotationSpeed;
+
+        if (Math.Abs(rotationDifference) <= maxRotation)
+        {
+            Rotation = targetAngle;
+        }
+        else
+        {
+            float rotationDirection = Math.Sign(rotationDifference);
+            Rotation += rotationDirection * maxRotation;
         }
     }
 

@@ -15,19 +15,21 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
     public ulong CountKilling { get; set; }
     
     private ulong _previousCountKilling;
-    public float MaxHp { get; protected set;}
-    public float CurrentHp{ get; protected set; }
+    public float MaxHp { get; set; }
+    public float CurrentHp { get; set; }
     public float MaxSpecialAbility{ get; private set;}
     public float CurrentSpecialAbility{ get; private set;}
     public int MaxLevelUp{ get; private set;}
     public int CurrentLevelUp{ get; private set;}
     public static readonly Player Creature = new();
+    public float RotationSpeed{ get; private set;}
     private Player()
     {
+        RotationSpeed = 10f;
         Texture = TextureSource.Player;
         Velocity = 170f;
         MaxHp = 100;
-        MaxLevelUp = 100;
+        MaxLevelUp = 50;
         CurrentLevelUp = 0;
         MaxSpecialAbility = 50;
         CurrentSpecialAbility = 0;
@@ -50,10 +52,20 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
         Move();
         WeaponLogistic();
         RotationPlayer();
+        if (InputDataComponent.KeyBePressed(Keys.Y))
+            CurrentLevelUp+=50;
     }
     private void RotationPlayer()
     {
-        Rotation = InputDataComponent.GetAngleRotation();
+        var targetAngle = InputDataComponent.GetAngleRotation();
+        var rotationDifference = MathHelper.WrapAngle(targetAngle - Rotation);
+
+        var maxRotation = Configurations.IndependentActionsFromFramrate * RotationSpeed*PlayerSkills.Speed;
+
+        var rotationDirection = Math.Sign(rotationDifference);
+        var rotationAmount = rotationDirection * Math.Min(Math.Abs(rotationDifference), maxRotation);
+        Rotation += rotationAmount;
+
     }
 
     public void Move()
@@ -61,7 +73,16 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
         var direction = InputDataComponent.GetMovement();
         if (direction == Vector2.Zero) return;
         direction.Normalize();
-        Position += direction * Velocity * Configurations.IndependentActionsFromFramrate;
+        Position += direction * Velocity * Configurations.IndependentActionsFromFramrate*PlayerSkills.Speed;
+        Position = Vector2.Clamp(Position, MinPos, MaxPos);
+    }
+
+    public Vector2 MinPos { get; set; }
+    public Vector2 MaxPos { get; set; }
+    public void SetBounds(Point mapSize, Point tileSize)
+    {
+        MinPos = new((-tileSize.X / 2) + Origin.X, (-tileSize.Y / 2) + Origin.Y);
+        MaxPos = new(mapSize.X - (tileSize.X / 2) - Origin.X, mapSize.Y - (tileSize.X / 2) - Origin.Y);
     }
 
     private void CheckLevel()
@@ -143,5 +164,17 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
     {
         base.Draw();
         WeaponInventory.CurrentWeapon.Draw();
+    }
+
+    public void UpdateHP()
+    {
+        MaxHp=MaxHp*(PlayerSkills.HP + PlayerSkills.HP / 50f) / PlayerSkills.HP;
+        MaxHp = CurrentHp;
+    }
+
+    public void UpdateSpecialAbility()
+    {
+        MaxSpecialAbility=MaxSpecialAbility*(PlayerSkills.SpecialAbillity + PlayerSkills.SpecialAbillity / 50f) / PlayerSkills.SpecialAbillity;
+        CurrentSpecialAbility = MaxSpecialAbility;
     }
 }

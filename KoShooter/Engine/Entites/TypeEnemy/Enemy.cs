@@ -10,14 +10,15 @@ namespace KosShooter;
 
 public class Enemy : Entity,IMovementComponent,IHealthComponent
 {
-    public float MaxHP{ get; private set; }
-    public float CurrentHP{ get; private set; }
+    public float MaxHp { get; set; }
+    public float CurrentHp { get; set; }
+
     public Enemy(Vector2 position)
     {
         Texture = TextureSource.Enemy;
         Position = position;
         Velocity = 150;
-        CurrentHP = 100;
+        CurrentHp = 100;
     }
     public override void Update()
     {
@@ -29,7 +30,7 @@ public class Enemy : Entity,IMovementComponent,IHealthComponent
 
     private void CheckStatus()
     {
-        if (!(CurrentHP <= 0)) return;
+        if (!(CurrentHp <= 0)) return;
         Status = GameStatus.NotExist;
         Player.Creature.CountKilling++;
     }
@@ -49,19 +50,28 @@ public class Enemy : Entity,IMovementComponent,IHealthComponent
         if (!(direction.Length() > 4)) return;
         direction.Normalize();
         Position += direction * Velocity * Configurations.IndependentActionsFromFramrate;
+        Position = Vector2.Clamp(Position, MinPos, MaxPos);
+    }
+
+    public Vector2 MinPos { get; set; }
+    public Vector2 MaxPos { get; set; }
+    public void SetBounds(Point mapSize, Point tileSize)
+    {
+        MinPos = new((-tileSize.X / 2) + Origin.X, (-tileSize.Y / 2) + Origin.Y);
+        MaxPos = new(mapSize.X - (tileSize.X / 2) - Origin.X, mapSize.Y - (tileSize.X / 2) - Origin.Y);
     }
 
     public void TakeDamage(float damage)
     {
-        CurrentHP -= damage;
-        if (CurrentHP < 0)
-            CurrentHP = 0;
+        CurrentHp -= damage;
+        if (CurrentHp < 0)
+            CurrentHp = 0;
     }
 
     public void Heal(float heal)
     {
-        CurrentHP += heal;
-        if (CurrentHP > MaxHP)
-            CurrentHP = MaxHP;
+        CurrentHp += heal;
+        if (CurrentHp > MaxHp)
+            CurrentHp = MaxHp;
     }
 }

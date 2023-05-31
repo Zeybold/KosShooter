@@ -29,8 +29,9 @@ public class Shootgun : Weapon
             var position = Player.Creature.Position;
             position.X -= 50f*(float)Math.Cos(Player.Creature.Rotation+Math.PI/2);
             position.Y -= 50f*(float)Math.Sin(Player.Creature.Rotation+Math.PI/2);
-            var b = new Bullet(position, MuzzleVelocity, WeaponSpread, Damage, DamageDropWithDistance);
-            EntityProcessing.Add(b);
+            var bullet = new Bullet(position, MuzzleVelocity, WeaponSpread, Damage, DamageDropWithDistance);
+            bullet.SetBounds(WorldSystem.Map.MapSize,WorldSystem.Map.TileSize);
+            EntityProcessing.Add(bullet);
         }
     }
     

@@ -12,7 +12,7 @@ public static class Configurations
     public static ContentManager ContentGame{ get; private set; }
     public static int ScreenHeight{ get; private set; }
     public static int ScreenWidth{ get; private set; }
-    private static GraphicsDeviceManager GraphicsDeviceManager{ get; set; }
+    public static GraphicsDeviceManager GraphicsDeviceManager{ get; private set; }
     public static readonly Color BaseColor = Color.White;
     public static float IndependentActionsFromFramrate{ get; private set; }
     public static bool IsFreezeTime{ get; set; }

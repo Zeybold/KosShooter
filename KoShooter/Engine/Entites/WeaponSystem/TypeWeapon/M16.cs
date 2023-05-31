@@ -29,8 +29,9 @@ public class M16 : Weapon
     public override void CreateBullet()
     {
         var position = Player.Creature.Position;
-        position.X -= 70f*(float)Math.Cos(Player.Creature.Rotation+Math.PI/2);
-        position.Y -= 70f*(float)Math.Sin(Player.Creature.Rotation+Math.PI/2);
-        EntityProcessing.Add(new Bullet(position,MuzzleVelocity,WeaponSpread,Damage,DamageDropWithDistance));
+        var bullet = new Bullet(position, MuzzleVelocity, WeaponSpread * PlayerSkills.SharpShooting, Damage,
+            DamageDropWithDistance);
+        bullet.SetBounds(WorldSystem.Map.MapSize,WorldSystem.Map.TileSize);
+        EntityProcessing.Add(bullet);
     }
 }
