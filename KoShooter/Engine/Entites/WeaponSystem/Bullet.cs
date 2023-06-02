@@ -14,14 +14,14 @@ namespace KosShooter;
 public class Bullet : Entity,IMovementComponent
 {
     
-    private float _damage;
+    public float Damage { get; private set; }
     private readonly float _damageDropWithDistance;
     public Bullet(Vector2 position, float velocity, float weaponSpread, float damage, float damageDropWithDistance)
     {
         Position = position;
         Velocity = velocity;
         Texture = TextureSource.Bullet;
-        _damage = damage;
+        Damage = damage;
         _damageDropWithDistance = damageDropWithDistance;
         var greatRandom = new Random();
         Rotation = greatRandom
@@ -36,8 +36,13 @@ public class Bullet : Entity,IMovementComponent
     }
     private void LossOfDamage()
     {
-        _damage -= _damageDropWithDistance*Configurations.IndependentActionsFromFramrate;
-        if (_damage<=0)
+        if (Configurations.IsFreezeTime)
+            Damage -= _damageDropWithDistance*Configurations.IndependentActionsFromFramrate*1.5f;
+        else
+        {
+            Damage -= _damageDropWithDistance*Configurations.IndependentActionsFromFramrate;
+        }
+        if (Damage<=0)
             Status = GameStatus.NotExist;
     }
     public void Move()
@@ -46,7 +51,10 @@ public class Bullet : Entity,IMovementComponent
         direction.X += (float)Math.Cos(Rotation-Math.PI/2);
         direction.Y += (float)Math.Sin(Rotation-Math.PI/2);
         direction.Normalize();
-        Position += direction * Velocity * Configurations.IndependentActionsFromFramrate;
+        if (Configurations.IsFreezeTime)
+            Position += direction * Velocity * Configurations.IndependentActionsFromFramrate*1.5f;
+        else
+            Position += direction * Velocity * Configurations.IndependentActionsFromFramrate;
         if (Position.X < MinPos.X || Position.X > MaxPos.X ||
             Position.Y < MinPos.Y || Position.Y > MaxPos.Y)
         {

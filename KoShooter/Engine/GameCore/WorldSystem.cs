@@ -5,6 +5,7 @@ using System.Net.Mime;
 using Microsoft.Xna.Framework;
 using System.Net.Mime;
 using KosShooter.Engine;
+using KosShooter.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -14,49 +15,86 @@ namespace KosShooter;
 public class WorldSystem
 {
     public static readonly Map Map = new Map();
-    public static Matrix _translation;
+    public static Matrix Camera;
+    private static float TimerSpawn = 5f;
     public WorldSystem()
     {
         Configurations.MapBounds(Map.MapSize,Map.TileSize);
-        EntityProcessing.Add(new Pistol());
-        EntityProcessing.Add(new Shootgun(new Vector2(300,350)));
         Player.Creature.SetPosition(new Vector2(500,500));
         EntityProcessing.Add(Player.Creature);
         Player.Creature.SetBounds(Map.MapSize, Map.TileSize);
-        var rnd = new Random();
-        /*for (var i = 0; i < 10; i++)
-        {
-            EntityProcessing.Add(new Enemy(new Vector2(rnd.Next(0,Configurations.ScreenWidth),rnd.Next(0,Configurations.ScreenHeight))));
-        }*/
         Mouse.SetCursor(MouseCursor.FromTexture2D(Configurations.ContentGame.Load<Texture2D>("TextureGames/Cursor/aim"),10,10));
         PlayerSkills.ResetCharacter();
         
     }
     private void CalculateTranslation()
     {
-        var dx = (Configurations.ScreenWidth / 2) - Player.Creature.Position.X;
-        dx = MathHelper.Clamp(dx, -Map.MapSize.X + Configurations.ScreenWidth + (Map.TileSize.X / 2), Map.TileSize.X / 2);
-        var dy = (Configurations.ScreenHeight / 2) - Player.Creature.Position.Y;
-        dy = MathHelper.Clamp(dy, -Map.MapSize.Y + Configurations.ScreenHeight + (Map.TileSize.Y / 2), Map.TileSize.Y / 2);
-        _translation = Matrix.CreateTranslation(dx, dy, 0f);
+        var dx = Configurations.ScreenWidth / 2 - Player.Creature.Position.X;
+        dx = MathHelper.Clamp(dx, -Map.MapSize.X + Configurations.ScreenWidth + Map.TileSize.X / 2, Map.TileSize.X / 2);
+        var dy = Configurations.ScreenHeight / 2 - Player.Creature.Position.Y;
+        dy = MathHelper.Clamp(dy, -Map.MapSize.Y + Configurations.ScreenHeight + Map.TileSize.Y / 2, Map.TileSize.Y / 2);
+        Camera = Matrix.CreateTranslation(dx, dy, 0f);
     }
     public void Update()
     {
+        TimerSpawn -= Configurations.Time;
+        if (TimerSpawn <= 0)
+        {
+            TimerSpawn = 5f;
+            SpawnEnemy((EnemyStatus)new Random().Next(0,2));
+            //SpawnHelp();
+        }
         InputDataComponent.RegistrationKey();
         EntityProcessing.Update();
-        PlayerInterface.Update();
         CalculateTranslation();
+        PlayerInterface.Update();
     }
 
     public void Draw()
     {
         Configurations.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied,
-            null, null, null, null, _translation);
+            null, null, null, null, Camera);
         Map.Draw();
         EntityProcessing.Draw();
         Configurations.SpriteBatch.End();
         Configurations.SpriteBatch.Begin();
         PlayerInterface.Draw();
         Configurations.SpriteBatch.End();
+    }
+
+    public void SpawnEnemy(EnemyStatus enemyStatus)
+    {
+        for (var i = 0; i < 10; i++)
+        {
+            Enemy em = null;
+            var rnd = new Random();
+            switch (enemyStatus)
+            {
+                case EnemyStatus.Bug:
+                    em = new Bug(new Vector2(rnd.Next(0, Map.MapSize.X), rnd.Next(0, Map.MapSize.Y)));
+                    break;
+                case EnemyStatus.Reptile:
+                    em = new Reptile(new Vector2(rnd.Next(0, Map.MapSize.X), rnd.Next(0, Map.MapSize.Y)));
+                    break;
+                case EnemyStatus.Daemon:
+                    em = new Daemon(new Vector2(rnd.Next(0, Map.MapSize.X), rnd.Next(0, Map.MapSize.Y)));
+                    break;
+            }
+            em.SetBounds(Map.MapSize, Map.TileSize);
+            EntityProcessing.Add(em);
+        }
+    }
+    public void SpawnHelp()
+    {
+        for (var i = 0; i < 5; i++)
+        {
+            var rnd = new Random();
+            var aid = new AiItemAidKit();
+            aid.GetPosition(new Vector2(rnd.Next(0, Map.MapSize.X), rnd.Next(0, Map.MapSize.Y)));
+            EntityProcessing.Add(aid);
+            var wep = new AiItemWeaponAmmunition();
+            wep.GetPosition(new Vector2(rnd.Next(0, Map.MapSize.X), rnd.Next(0, Map.MapSize.Y)));
+            EntityProcessing.Add(wep);
+        }
     }
 }

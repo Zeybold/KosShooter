@@ -1,6 +1,9 @@
 using Microsoft.Xna.Framework;
 using System;
 using System.Net.Mime;
+using System.Windows.Forms;
+using KosShooter.Engine;
+using KosShooter.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -8,23 +11,24 @@ using Microsoft.Xna.Framework.Input;
 
 namespace KosShooter;
 
-public class Enemy : Entity,IMovementComponent,IHealthComponent
+public abstract class Enemy : Entity,IMovementComponent,IHealthComponent
 {
     public float MaxHp { get; set; }
     public float CurrentHp { get; set; }
+    protected EnemyStatus EmStatus{ get; init; }
+    protected float Damage{ get; init; }
+    protected DropItemSystem DrItSys { get; set; }
 
-    public Enemy(Vector2 position)
+    protected Enemy(Vector2 position)
     {
-        Texture = TextureSource.Enemy;
+        DrItSys = new DropItemSystem();
         Position = position;
-        Velocity = 150;
-        CurrentHp = 100;
     }
     public override void Update()
     {
         base.Update();
-        Move();
         FindPlayer();
+        Move();
         CheckStatus();
     }
 
@@ -32,13 +36,19 @@ public class Enemy : Entity,IMovementComponent,IHealthComponent
     {
         if (!(CurrentHp <= 0)) return;
         Status = GameStatus.NotExist;
+        var d = DrItSys.DropItem();
         Player.Creature.CountKilling++;
+        if (d is not null)
+        {
+            d.GetPosition(Position);
+            //EntityProcessing.Add(d);
+        }
     }
     
     private void FindPlayer()
     {
-        var mousePosition = Player.Creature.Position;
-        var direction = Vector2.Normalize(mousePosition - Position);
+        var playerPosition = Player.Creature.Position;
+        var direction = Vector2.Normalize(playerPosition - Position);
         var angle = (float)Math.Atan2(direction.Y, direction.X);
         Rotation = angle+(float)Math.PI/2;
     }
@@ -73,5 +83,10 @@ public class Enemy : Entity,IMovementComponent,IHealthComponent
         CurrentHp += heal;
         if (CurrentHp > MaxHp)
             CurrentHp = MaxHp;
+    }
+
+    public void MakeDamage()
+    {
+        Player.Creature.TakeDamage(Damage);
     }
 }

@@ -29,14 +29,16 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
         Texture = TextureSource.Player;
         Velocity = 170f;
         MaxHp = 100;
+        CurrentHp = 100;
         MaxLevelUp = 50;
         CurrentLevelUp = 0;
         MaxSpecialAbility = 50;
         CurrentSpecialAbility = 0;
-        CurrentHp = MaxHp;
         CountKilling = 1;
         _previousCountKilling = 0;
         WeaponInventory.AddWeapon(new Pistol());
+        WeaponInventory.AddWeapon(new DoubleBarrel());
+        WeaponInventory.AddWeapon(new M16());
     }
 
     public void SetPosition(Vector2 beginPosition)
@@ -52,16 +54,20 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
         Move();
         WeaponLogistic();
         RotationPlayer();
-        if (InputDataComponent.KeyBePressed(Keys.Y))
-            CurrentLevelUp+=50;
     }
     private void RotationPlayer()
     {
+        float maxRotation;
         var targetAngle = InputDataComponent.GetAngleRotation();
         var rotationDifference = MathHelper.WrapAngle(targetAngle - Rotation);
-
-        var maxRotation = Configurations.IndependentActionsFromFramrate * RotationSpeed*PlayerSkills.Speed;
-
+        if (Configurations.IsFreezeTime)
+        {
+            maxRotation = RotationSpeed*PlayerSkills.Speed*Configurations.IndependentActionsFromFramrate*1.5f;
+        }
+        else
+        {
+            maxRotation = Configurations.IndependentActionsFromFramrate * RotationSpeed*PlayerSkills.Speed;
+        }
         var rotationDirection = Math.Sign(rotationDifference);
         var rotationAmount = rotationDirection * Math.Min(Math.Abs(rotationDifference), maxRotation);
         Rotation += rotationAmount;
@@ -73,7 +79,12 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
         var direction = InputDataComponent.GetMovement();
         if (direction == Vector2.Zero) return;
         direction.Normalize();
-        Position += direction * Velocity * Configurations.IndependentActionsFromFramrate*PlayerSkills.Speed;
+        if (Configurations.IsFreezeTime)
+            Position += direction * Velocity *Configurations.IndependentActionsFromFramrate*1.2f*PlayerSkills.Speed;
+        else
+        {
+            Position += direction * Velocity * Configurations.IndependentActionsFromFramrate*PlayerSkills.Speed;
+        }
         Position = Vector2.Clamp(Position, MinPos, MaxPos);
     }
 
@@ -126,6 +137,7 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
     }
     private void WeaponLogistic()
     {
+        WeaponInventory.UpdatePositionGun();
         WeaponInventory.CurrentWeapon.Update();
         ReloadGun();
         ChangeWeapon();
@@ -150,7 +162,7 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
     {
         CurrentHp -= damage;
         if (CurrentHp < 0)
-            CurrentHp = 0;
+            Status=GameStatus.NotExist;
     }
 
     public void Heal(float heal)
@@ -168,8 +180,8 @@ public class Player : Entity,IMovementComponent,IHealthComponent,IWeaponComponen
 
     public void UpdateHP()
     {
-        MaxHp=MaxHp*(PlayerSkills.HP + PlayerSkills.HP / 50f) / PlayerSkills.HP;
-        MaxHp = CurrentHp;
+        MaxHp=MaxHp*(PlayerSkills.Hp + PlayerSkills.Hp / 50f) / PlayerSkills.Hp;
+        CurrentHp = MaxHp;
     }
 
     public void UpdateSpecialAbility()

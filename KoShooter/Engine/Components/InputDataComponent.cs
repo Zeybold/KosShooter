@@ -35,7 +35,7 @@ public static class InputDataComponent
     public static float GetAngleRotation()
     {
         var mousePosition = new Vector2(_mouseState.X, _mouseState.Y);
-        Vector2 worldMousePosition = Vector2.Transform(mousePosition, Matrix.Invert(WorldSystem._translation));
+        Vector2 worldMousePosition = Vector2.Transform(mousePosition, Matrix.Invert(WorldSystem.Camera));
         var direction = Vector2.Normalize(worldMousePosition - Player.Creature.Position);
         return (float)Math.Atan2(direction.Y, direction.X)+(float)Math.PI/2;
     }

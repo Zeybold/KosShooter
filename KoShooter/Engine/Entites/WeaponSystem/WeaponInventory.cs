@@ -12,18 +12,27 @@ namespace KosShooter;
 
 public static class WeaponInventory
 {
-    private static Dictionary<byte,Weapon> numberToWeapon = new ();
-    private static Dictionary<Weapon,byte> WeaponToNumber = new ();
+    private static Dictionary<int,Weapon> numberToWeapon = new ();
+    private static Dictionary<Weapon,int> WeaponToNumber = new ();
     private static int _previousScrollValue;
-    private static byte _lengthInventory;
+    private static int _lengthInventory;
     public static Weapon CurrentWeapon { get; private set; }
     public static void AddWeapon(Weapon weapon)
     {
-        if (WeaponToNumber.ContainsKey(weapon)) return;
+        if (WeaponToNumber.TryGetValue(weapon, out var value))
+        {
+            numberToWeapon[value].FillAmmunition(weapon.CurrentAmmunition);
+        };
         CurrentWeapon = weapon;
-        numberToWeapon.Add((byte)(_lengthInventory+1),weapon);
-        WeaponToNumber.Add(weapon,(byte)(_lengthInventory+1));
+        numberToWeapon.Add(_lengthInventory+1,weapon);
+        WeaponToNumber.Add(weapon,_lengthInventory+1);
         _lengthInventory++;
+    }
+
+    public static void UpdatePositionGun()
+    {
+        foreach (var el in numberToWeapon)
+            el.Value.WeaponLogicInInventory();
     }
 
     public static void ChangeGun(int mouseWheel)
@@ -31,9 +40,9 @@ public static class WeaponInventory
         CurrentWeapon =(mouseWheel-_previousScrollValue) switch
         {
             > 0 => WeaponToNumber[CurrentWeapon] + 1 > _lengthInventory ? 
-                numberToWeapon[1] : numberToWeapon[(byte)(WeaponToNumber[CurrentWeapon] + 1)],
+                numberToWeapon[1] : numberToWeapon[WeaponToNumber[CurrentWeapon] + 1],
             < 0 => WeaponToNumber[CurrentWeapon] - 1 < 1 ? 
-                numberToWeapon[_lengthInventory] : numberToWeapon[(byte)(WeaponToNumber[CurrentWeapon] - 1)],
+                numberToWeapon[_lengthInventory] : numberToWeapon[WeaponToNumber[CurrentWeapon] - 1],
             _ => CurrentWeapon
         };
         _previousScrollValue = mouseWheel;

@@ -6,11 +6,11 @@ namespace KosShooter;
 
 public class M16 : Weapon
 {
-    public M16(Vector2 position)
+    public M16()
     {
-        Position = position;
-        Texture = TextureSource.M16;
-        Status = GameStatus.OnFloor;
+        WeaponId = WeaponStatus.M16;
+        Texture = TextureSource.WeaponList[(int)WeaponId];
+        Status = GameStatus.InInventory;
         
         Damage = 25f;
         DamageDropWithDistance = 20f;
@@ -23,15 +23,11 @@ public class M16 : Weapon
         DelayBetweenShoot = 0.15f;
         CurrentAmmoInStore = WeaponStore;
         ReloadVelocity = 2.5f;
-
+        CurrentAmmunition = WeaponStore*3;
     }
-
-    public override void CreateBullet()
+    public override void UseItem()
     {
-        var position = Player.Creature.Position;
-        var bullet = new Bullet(position, MuzzleVelocity, WeaponSpread * PlayerSkills.SharpShooting, Damage,
-            DamageDropWithDistance);
-        bullet.SetBounds(WorldSystem.Map.MapSize,WorldSystem.Map.TileSize);
-        EntityProcessing.Add(bullet);
+        base.UseItem();
+        WeaponInventory.AddWeapon(new M16());
     }
 }

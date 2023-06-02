@@ -25,7 +25,7 @@
 /processorParam:TextureFormat=Color
 /build:TextureGames/Cursor/aim.png
 
-#begin TextureGames/Enemies/enemy1.png
+#begin TextureGames/Enemies/Enemy1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -35,9 +35,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:TextureGames/Enemies/enemy1.png
+/build:TextureGames/Enemies/Enemy1.png
 
-#begin TextureGames/Map/tile1.png
+#begin TextureGames/Enemies/Enemy2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -47,7 +47,55 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:TextureGames/Map/tile1.png
+/build:TextureGames/Enemies/Enemy2.png
+
+#begin TextureGames/Enemies/Enemy3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:TextureGames/Enemies/Enemy3.png
+
+#begin TextureGames/Items/HealthAid1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:TextureGames/Items/HealthAid1.png
+
+#begin TextureGames/Items/HealthAid2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:TextureGames/Items/HealthAid2.png
+
+#begin TextureGames/Items/HealthAid3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:TextureGames/Items/HealthAid3.png
 
 #begin TextureGames/Map/Title1.png
 /importer:TextureImporter
@@ -97,30 +145,6 @@
 /processorParam:TextureFormat=Color
 /build:TextureGames/Map/Title4.png
 
-#begin TextureGames/PlayerModel/Kosiak85x128.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:TextureGames/PlayerModel/Kosiak85x128.png
-
-#begin TextureGames/PlayerModel/Kosiak85x128Shootgun.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:TextureGames/PlayerModel/Kosiak85x128Shootgun.png
-
 #begin TextureGames/PlayerModel/Kosiak85x80.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -132,18 +156,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:TextureGames/PlayerModel/Kosiak85x80.png
-
-#begin TextureGames/PlayerModel/KosiakShootgun.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:TextureGames/PlayerModel/KosiakShootgun.png
 
 #begin TextureGames/UI/LevelBarEmpty256x26.png
 /importer:TextureImporter
@@ -229,6 +241,18 @@
 /processorParam:TextureFormat=Color
 /build:TextureGames/Weapons/Bullet.png
 
+#begin TextureGames/Weapons/DoubleBarrel.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:TextureGames/Weapons/DoubleBarrel.png;TextureGames/Weapons/wep3.png
+
 #begin TextureGames/Weapons/M16.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -239,7 +263,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:TextureGames/Weapons/M16.png
+/build:TextureGames/Weapons/M16.png;TextureGames/Weapons/wep2.png
 
 #begin TextureGames/Weapons/Pistol.png
 /importer:TextureImporter
@@ -251,17 +275,5 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:TextureGames/Weapons/Pistol.png
-
-#begin TextureGames/Weapons/Shootgun.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:TextureGames/Weapons/Shootgun.png
+/build:TextureGames/Weapons/Pistol.png;TextureGames/Weapons/wep1.png
 

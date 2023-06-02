@@ -10,7 +10,7 @@ public static class TimeSystem
     //Min=0.05
     private const float Max = 1f;
     private const float TimeFreezeSpeedPerSecond = Max - Min;
-    private static float _timeFreeze = 1f;
+    public static float yTimeFreeze = 1f;
     private static float _time;
     public static float FreezeTime { get; private set; }
 
@@ -19,13 +19,13 @@ public static class TimeSystem
         _time = (float)gameTime.ElapsedGameTime.TotalSeconds;
         if (Configurations.IsFreezeTime)
         {
-            _timeFreeze -= TimeFreezeSpeedPerSecond * _time;
+            yTimeFreeze -= TimeFreezeSpeedPerSecond * _time;
         }
         else
         {
-            _timeFreeze+=TimeFreezeSpeedPerSecond * _time;
+            yTimeFreeze+=TimeFreezeSpeedPerSecond * _time;
         }
-        _timeFreeze = Math.Clamp(_timeFreeze, Min, Max);
-        FreezeTime = _timeFreeze * _time;
+        yTimeFreeze = Math.Clamp(yTimeFreeze, Min, Max);
+        FreezeTime = yTimeFreeze * _time;
     }
 }

@@ -12,8 +12,8 @@ public abstract class Entity
     public Vector2 Position { get; protected set; }
     protected float Velocity;
     public float Rotation{ get; protected set; }
-    private readonly Vector2[] CollisionRectangle = new Vector2[4];
-    protected GameStatus Status = GameStatus.Exist;
+    public readonly Vector2[] CollisionRectangle = new Vector2[4];
+    public GameStatus Status = GameStatus.Exist;
     protected Vector2 Origin => new(Texture.Width/2, Texture.Height/2);
     public Vector2 Size => new(Texture.Width, Texture.Height);
 
@@ -46,6 +46,11 @@ public abstract class Entity
     public bool IsExist()
     {
         return Status is GameStatus.Exist or GameStatus.OnFloor or GameStatus.InInventory;
+    }
+
+    public void Impulse(Vector2 direction)
+    {
+        Position += direction;
     }
 }
     

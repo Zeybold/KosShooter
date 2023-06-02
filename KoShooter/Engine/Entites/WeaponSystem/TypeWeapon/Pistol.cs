@@ -8,9 +8,9 @@ public class Pistol : Weapon
 {
     public Pistol()
     {
-        Texture = TextureSource.Pistol;
+        WeaponId = WeaponStatus.Pistol;
+        Texture = TextureSource.WeaponList[(int)WeaponId];
         Status = GameStatus.InInventory;
-        
         Damage = 20f;
         DamageDropWithDistance = 10f;
         MuzzleVelocity = 1400f;
@@ -20,14 +20,12 @@ public class Pistol : Weapon
         DelayBetweenShoot = 0.25f;
         CurrentAmmoInStore = WeaponStore;
         ReloadVelocity = 1;
+        CurrentAmmunition = 99999;
     }
-    public override void CreateBullet()
+
+    public override void UseItem()
     {
-        var position = Player.Creature.Position;
-        position.X -= 50f*(float)Math.Cos(Player.Creature.Rotation+Math.PI/2);
-        position.Y -= 50f*(float)Math.Sin(Player.Creature.Rotation+Math.PI/2);
-        var bullet = new Bullet(position, MuzzleVelocity, WeaponSpread*PlayerSkills.SharpShooting, Damage, DamageDropWithDistance);
-        bullet.SetBounds(WorldSystem.Map.MapSize,WorldSystem.Map.TileSize);
-        EntityProcessing.Add(bullet);
+        base.UseItem();
+        WeaponInventory.AddWeapon(new Pistol());
     }
 }

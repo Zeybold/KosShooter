@@ -35,8 +35,8 @@ public static class PlayerInterface
 
     public static void Draw()
     {
-        HealthBar.Draw();
         TimeBar.Draw();
         LeverBar.Draw();
+        HealthBar.Draw();
     }
 }

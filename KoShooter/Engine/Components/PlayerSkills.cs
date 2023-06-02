@@ -5,7 +5,7 @@ public static class PlayerSkills
     public static float SharpShooting{ get; private set; }
     public static float Luck{ get; private set; }
     public static float Speed{ get; private set; }
-    public static float HP{ get; private set; }
+    public static float Hp{ get; private set; }
     public static float SpecialAbillity{ get; private set; }
 
     public static void ResetCharacter()
@@ -13,7 +13,7 @@ public static class PlayerSkills
         SharpShooting = 1;
         Luck = 1;
         Speed = 1;
-        HP = 1;
+        Hp = 1;
         SpecialAbillity = 1;
     }
 
@@ -27,14 +27,15 @@ public static class PlayerSkills
             PlayerInterface.TimeBar.LevelUp(Player.Creature.MaxSpecialAbility);
             SpecialAbillity+=SpecialAbillity/50f;
         }
-        Luck+=Luck*0.2f;
+        if (Luck+Luck/70f<=3f)
+            Luck+=Luck/70f;
         if (Speed+Speed/50f<2.5f)
             Speed+=Speed/50f;
-        if (HP + HP / 50f < 2.5f)
+        if (Hp + Hp / 50f < 2.5f)
         {
             Player.Creature.UpdateHP();
             PlayerInterface.HealthBar.LevelUp(Player.Creature.MaxHp);
-            HP+=HP/50f;
+            Hp+=Hp/50f;
         }
     }
 }

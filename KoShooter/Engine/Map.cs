@@ -17,9 +17,6 @@ public class Map
     public Map()
     {
         _tiles = new Title[_mapTileSize.X, _mapTileSize.Y];
-
-        TextureSource.FillMap();
-        
         TileSize = new(TextureSource.MapTextures[0].Width, TextureSource.MapTextures[0].Height);
         MapSize = new(TileSize.X * _mapTileSize.X, TileSize.Y * _mapTileSize.Y);
 
