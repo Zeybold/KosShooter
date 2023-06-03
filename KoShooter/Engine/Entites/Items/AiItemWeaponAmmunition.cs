@@ -45,7 +45,7 @@ public class AiItemWeaponAmmunition: AiItem
     
     public void UseItem()
     {
-        WeaponInventory.AddWeapon(_weapon);
+        WeaponInventory.CurrentWeapon.FillAmmunition(_ammo);
         base.UseItem();
     }
 }

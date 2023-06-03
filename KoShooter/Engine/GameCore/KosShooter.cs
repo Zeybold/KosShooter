@@ -34,11 +34,14 @@ public class KosShooter : Game
     protected override void Update(GameTime gameTime)
     {
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
-            Keyboard.GetState().IsKeyDown(Keys.Escape) || Player.Creature.CurrentHp <= 0)
+            Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
         Configurations.UpdateGameTime(gameTime);
         if (Player.Creature.CurrentHp <= 0)
+        {
             _worldSystemGame = new WorldSystem();
+            Exit();
+        }
         else
             _worldSystemGame.Update();
         base.Update(gameTime);
@@ -48,7 +51,6 @@ public class KosShooter : Game
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
-        
         _worldSystemGame.Draw();
         base.Draw(gameTime);
     }
