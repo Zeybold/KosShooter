@@ -10,7 +10,7 @@ public class Daemon : Enemy
         EmStatus = EnemyStatus.Daemon;
         Texture = TextureSource.Enemies[(int)EmStatus];
         Velocity = 100;
-        Damage = 20;
+        Damage = 15;
         MaxHp = 50;
         CurrentHp = MaxHp;
         DrItSys.AddItem(new AiItemWeaponAmmunition(),0.3f);

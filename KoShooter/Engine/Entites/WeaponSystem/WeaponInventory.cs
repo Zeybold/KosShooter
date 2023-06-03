@@ -4,6 +4,7 @@ using System.Net.Mime;
 using System.Net.Sockets;
 using System.Security.Policy;
 using System.Windows.Forms.VisualStyles;
+using KosShooter.Engine.Entites.WeaponSystem;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -19,9 +20,9 @@ public static class WeaponInventory
     public static Weapon CurrentWeapon { get; private set; }
     public static void AddWeapon(Weapon weapon)
     {
-        if (WeaponToNumber.TryGetValue(weapon, out var value))
+        if (WeaponToNumber.ContainsKey(weapon))
         {
-            numberToWeapon[value].FillAmmunition(weapon.CurrentAmmunition);
+            numberToWeapon[WeaponToNumber[weapon]].FillAmmunition(weapon.CurrentAmmunition);
         };
         CurrentWeapon = weapon;
         numberToWeapon.Add(_lengthInventory+1,weapon);

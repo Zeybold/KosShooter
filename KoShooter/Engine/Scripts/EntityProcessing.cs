@@ -60,6 +60,8 @@ public static class EntityProcessing
                         GetCollisionWithBullet(entityA, entityB);
                         GetCollisionWithBullet(entityB, entityA);
                         GetCollisionWithCreations(entityA, entityB);
+                        GetCollisionWithEnemy(entityA, entityB);
+                        GetCollisionWithEnemy(entityB, entityA);
                         GetCollisionWithItems(entityA, entityB);
                         GetCollisionWithItems(entityB, entityA);
                     }
@@ -96,7 +98,7 @@ public static class EntityProcessing
             entity2.Impulse(-dir);
         }
     }
-    private static void GetCollisionWithItems(Entity entity1, Entity entity2)
+    private static void GetCollisionWithEnemy(Entity entity1, Entity entity2)
     {
         if (entity1 is Player && entity2 is Enemy)
         {
@@ -105,6 +107,18 @@ public static class EntityProcessing
             (entity2 as Enemy).MakeDamage();
             entity1.Impulse(dir);
             entity2.Impulse(-dir);
+        }
+    }
+    private static void GetCollisionWithItems(Entity entity1, Entity entity2)
+    {
+        if (entity1 is Player && entity2 is AiItem)
+        {
+            if (entity2 is AiItemAidKit)
+                ((AiItemAidKit)entity2).UseItem();
+            else
+            {
+                ((AiItemWeaponAmmunition)entity2).UseItem();
+            }
         }
     }
 }

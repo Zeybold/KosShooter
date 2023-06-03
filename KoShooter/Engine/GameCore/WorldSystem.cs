@@ -5,6 +5,7 @@ using System.Net.Mime;
 using Microsoft.Xna.Framework;
 using System.Net.Mime;
 using KosShooter.Engine;
+using KosShooter.Engine.UI;
 using KosShooter.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -15,8 +16,8 @@ namespace KosShooter;
 public class WorldSystem
 {
     public static readonly Map Map = new Map();
-    public static Matrix Camera;
-    private static float TimerSpawn = 5f;
+    public static Matrix Camera { get; private set; }
+    private static float _timerSpawn = 5f;
     public WorldSystem()
     {
         Configurations.MapBounds(Map.MapSize,Map.TileSize);
@@ -37,12 +38,12 @@ public class WorldSystem
     }
     public void Update()
     {
-        TimerSpawn -= Configurations.Time;
-        if (TimerSpawn <= 0)
+        _timerSpawn -= Configurations.Time;
+        if (_timerSpawn <= 0)
         {
-            TimerSpawn = 5f;
+            _timerSpawn = 5f;
             SpawnEnemy((EnemyStatus)new Random().Next(0,2));
-            //SpawnHelp();
+            SpawnHelp();
         }
         InputDataComponent.RegistrationKey();
         EntityProcessing.Update();
@@ -62,7 +63,7 @@ public class WorldSystem
         Configurations.SpriteBatch.End();
     }
 
-    public void SpawnEnemy(EnemyStatus enemyStatus)
+    private void SpawnEnemy(EnemyStatus enemyStatus)
     {
         for (var i = 0; i < 10; i++)
         {
@@ -84,7 +85,7 @@ public class WorldSystem
             EntityProcessing.Add(em);
         }
     }
-    public void SpawnHelp()
+    private void SpawnHelp()
     {
         for (var i = 0; i < 5; i++)
         {

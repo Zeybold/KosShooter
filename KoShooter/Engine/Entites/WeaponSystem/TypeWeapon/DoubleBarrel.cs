@@ -1,4 +1,5 @@
 using System;
+using KosShooter.Engine.Entites.WeaponSystem;
 using Microsoft.Xna.Framework;
 
 namespace KosShooter;

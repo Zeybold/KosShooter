@@ -34,10 +34,13 @@ public class KosShooter : Game
     protected override void Update(GameTime gameTime)
     {
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
-            Keyboard.GetState().IsKeyDown(Keys.Escape))
+            Keyboard.GetState().IsKeyDown(Keys.Escape) || Player.Creature.CurrentHp <= 0)
             Exit();
         Configurations.UpdateGameTime(gameTime);
-        _worldSystemGame.Update();
+        if (Player.Creature.CurrentHp <= 0)
+            _worldSystemGame = new WorldSystem();
+        else
+            _worldSystemGame.Update();
         base.Update(gameTime);
         Configurations.ScreenResultInit();
     }

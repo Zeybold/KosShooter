@@ -1,3 +1,5 @@
+using KosShooter.Engine.UI;
+
 namespace KosShooter;
 
 public static class PlayerSkills

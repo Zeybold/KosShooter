@@ -10,7 +10,7 @@ public class Reptile : Enemy
         EmStatus = EnemyStatus.Reptile;
         Texture = TextureSource.Enemies[(int)EmStatus];
         Velocity = 120;
-        Damage = 35;
+        Damage = 20;
         MaxHp = 30;
         CurrentHp = MaxHp;
         DrItSys.AddItem(new AiItemWeaponAmmunition(),0.6f);

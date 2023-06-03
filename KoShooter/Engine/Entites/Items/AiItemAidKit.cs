@@ -18,12 +18,7 @@ public class AiItemAidKit: AiItem
     public AiItemAidKit(float hh = 0)
     {
         Status = GameStatus.OnFloor;
-        if (hh==0)
-            heal = GreatAndFuriousRandom.NextFloat(10, 100)*PlayerSkills.Luck;
-        else
-        {
-            heal = hh;
-        }
+        heal = Math.Abs(hh - (-1)) < 0.001 ? GreatAndFuriousRandom.NextFloat(10, 100) * PlayerSkills.Luck : hh;
         if (heal > 100)
             heal = 100;
         Texture = heal switch
@@ -31,7 +26,7 @@ public class AiItemAidKit: AiItem
             >= 10 and < 25 => TextureSource.Medicine[0],
             >= 25 and < 50 => TextureSource.Medicine[1],
             >= 50 and <= 100 => TextureSource.Medicine[2],
-            _ => Texture
+            _ => TextureSource.Medicine[0]
         };
     }
 

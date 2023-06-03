@@ -1,15 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Net.Mime;
-using System.Security.Policy;
-using System.Windows.Forms.VisualStyles;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using static KosShooter.Configurations;
 
-namespace KosShooter;
+namespace KosShooter.Engine.UI;
 
 public static class PlayerInterface
 {
@@ -21,7 +13,8 @@ public static class PlayerInterface
         new(TextureSource.TimeBarEmpty, TextureSource.TimeBarFill, Player.Creature.MaxSpecialAbility,
             new Vector2(ScreenWidth/100f, 
                 ScreenHeight-ScreenHeight/20f));
-    public static readonly ProgressBar LeverBar =
+
+    private static readonly ProgressBar LeverBar =
     new(TextureSource.LevelBarEmpty, TextureSource.LevelBarFill, Player.Creature.MaxLevelUp,
     new Vector2(ScreenWidth-ScreenWidth/1.7f, 
         ScreenHeight/100f));
